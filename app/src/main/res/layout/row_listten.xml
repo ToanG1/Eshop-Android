@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listtenRowModel" type="com.nguyenvansapplication.app.modules.mybagpromocode.data.model.ListtenRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearRowten"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal" style="@style/groupStylegray_2">
+        <LinearLayout android:id="@+id/linearDiscount"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.27" android:layout_width="0dp"
+            android:orientation="horizontal" style="@style/groupStylecornerRadius_1">
+            <TextView android:ellipsize="end" android:id="@+id/txtTen"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_24pxv"
+                android:layout_marginStart="@dimen/_9pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_weight="0.66" android:layout_width="0dp"
+                android:singleLine="true"
+                android:text="@{listtenRowModel.txtTen}"
+                style="@style/txtMetropolisbold34_1" tools:text="@string/lbl_103"/>
+            <FrameLayout android:id="@+id/frameStacklanguage"
+                android:layout_height="@dimen/_27pxv"
+                android:layout_marginBottom="@dimen/_27pxv"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_1pxh"
+                android:layout_marginTop="@dimen/_24pxv" android:layout_width="@dimen/_20pxh">
+                <TextView android:ellipsize="end"
+                    android:gravity="top|start"
+                    android:id="@+id/txtLanguage"
+                    android:layout_gravity="bottom|center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10pxv"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:text="@{listtenRowModel.txtLanguage}"
+                    style="@style/txtMetropolisbold14" tools:text="@string/lbl_off"/>
+                <TextView android:ellipsize="end"
+                    android:gravity="top|start" android:id="@+id/txtOne"
+                    android:layout_gravity="top|start"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:text="@{listtenRowModel.txtOne}"
+                    style="@style/txtMetropolisbold14" tools:text="@string/lbl"/>
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearColumnpersonaloffer"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_22pxv"
+            android:layout_marginStart="@dimen/_14pxh"
+            android:layout_marginTop="@dimen/_24pxv"
+            android:layout_weight="0.43" android:layout_width="0dp" android:orientation="vertical">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtPersonaloffer"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:singleLine="true"
+                android:text="@{listtenRowModel.txtPersonaloffer}"
+                style="@style/txtMetropolismedium14" tools:text="@string/lbl_personal_offer"/>
+            <TextView android:ellipsize="end" android:id="@+id/txtCode"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listtenRowModel.txtCode}"
+                style="@style/txtMetropolisregular11" tools:text="@string/lbl_mypromocode2020"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearColumnduration"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_11pxv"
+            android:layout_marginEnd="@dimen/_14pxh"
+            android:layout_marginStart="@dimen/_14pxh"
+            android:layout_marginTop="@dimen/_12pxv"
+            android:layout_weight="0.31" android:layout_width="0dp" android:orientation="vertical">
+            <TextView android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:id="@+id/txtDuration"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_1pxh"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listtenRowModel.txtDuration}"
+                style="@style/txtMetropolisregular11_1" tools:text="@string/msg_6_days_remainin"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/btnApply"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_9pxv"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:paddingBottom="@dimen/_11pxv"
+                android:paddingEnd="@dimen/_25pxh"
+                android:paddingStart="@dimen/_26pxh"
+                android:paddingTop="@dimen/_11pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_apply"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded" tools:text="@string/lbl_apply"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

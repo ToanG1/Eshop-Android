@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="sortByVM" type="com.nguyenvansapplication.app.modules.sortby.data.viewmodel.SortByVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearSortby"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" android:orientation="vertical">
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearColumnrectanglenineteen"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylegray_50cornerRadius">
+            <View
+                android:background="@drawable/rectangle_bg_gray_500_radius_3"
+                android:id="@+id/lineRectangleNineteen"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/_6pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_14pxv" android:layout_width="@dimen/_60pxh"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtHeadlineTwo"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_18pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{sortByVM.sortByModel.txtHeadlineTwo}"
+                style="@style/txtMetropolissemibold18" tools:text="@string/lbl_sort_by"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtPopular"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_35pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{sortByVM.sortByModel.txtPopular}"
+                style="@style/txtMetropolisregular16" tools:text="@string/lbl_popular"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtNewest"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_30pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{sortByVM.sortByModel.txtNewest}"
+                style="@style/txtMetropolisregular16" tools:text="@string/lbl_newest"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtCustomerreview"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_31pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{sortByVM.sortByModel.txtCustomerreview}"
+                style="@style/txtMetropolisregular16" tools:text="@string/lbl_customer_review"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtActivatedItem"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_17pxv"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_15pxv"
+                android:paddingStart="@dimen/_16pxh"
+                android:paddingTop="@dimen/_16pxv"
+                android:singleLine="true"
+                android:text="@{sortByVM.sortByModel.txtActivatedItem}"
+                style="@style/txtSolid" tools:text="@string/msg_price_lowest_t"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtPricehighest"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_15pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{sortByVM.sortByModel.txtPricehighest}"
+                style="@style/txtMetropolisregular16" tools:text="@string/msg_price_highest"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

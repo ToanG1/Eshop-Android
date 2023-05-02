@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="addingToFavoritesVM" type="com.nguyenvansapplication.app.modules.addingtofavorites.data.viewmodel.AddingToFavoritesVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearAddingtofavor"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" android:orientation="vertical">
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearColumnlineOne"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylegray_50cornerRadius">
+            <LinearLayout android:gravity="start"
+                android:id="@+id/linearColumnrectanglenineteen"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15pxh"
+                android:layout_marginStart="@dimen/_15pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent" android:orientation="vertical">
+                <View
+                    android:background="@drawable/rectangle_bg_gray_500_radius_3"
+                    android:id="@+id/lineRectangleNineteen"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="@dimen/_6pxv"
+                    android:layout_marginEnd="@dimen/_125pxh"
+                    android:layout_marginStart="@dimen/_125pxh" android:layout_width="@dimen/_60pxh"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtHeadlineTwo"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_125pxh"
+                    android:layout_marginStart="@dimen/_125pxh"
+                    android:layout_marginTop="@dimen/_16pxv"
+                    android:layout_width="wrap_content"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="@{addingToFavoritesVM.addingToFavoritesModel.txtHeadlineTwo}"
+                    style="@style/txtMetropolissemibold18" tools:text="@string/lbl_select_size"/>
+                <LinearLayout android:id="@+id/linearRowtaginactiveor"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25pxv"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtTagInactiveOr"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.33"
+                        android:layout_width="0dp"
+                        android:lineSpacingExtra="@dimen/_1pxh"
+                        android:paddingBottom="@dimen/_13pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@{addingToFavoritesVM.addingToFavoritesModel.txtTagInactiveOr}"
+                        style="@style/txtSolidRoundedOutline" tools:text="@string/lbl_xs"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtTagInactiveOrOne"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_22pxh"
+                        android:layout_weight="0.33"
+                        android:layout_width="0dp"
+                        android:lineSpacingExtra="@dimen/_1pxh"
+                        android:paddingBottom="@dimen/_13pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@{addingToFavoritesVM.addingToFavoritesModel.txtTagInactiveOrOne}"
+                        style="@style/txtSolidRoundedOutline" tools:text="@string/lbl_s"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtTagInactiveOrTwo"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21pxh"
+                        android:layout_weight="0.33"
+                        android:layout_width="0dp"
+                        android:lineSpacingExtra="@dimen/_1pxh"
+                        android:paddingBottom="@dimen/_13pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@{addingToFavoritesVM.addingToFavoritesModel.txtTagInactiveOrTwo}"
+                        style="@style/txtSolidRoundedOutline" tools:text="@string/lbl_m"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="start"
+                    android:id="@+id/linearRowl"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:layout_marginTop="@dimen/_16pxv"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:ellipsize="end" android:gravity="center"
+                        android:id="@+id/btnL"
+                        android:layout_height="@dimen/_40pxv"
+                        android:layout_width="@dimen/_100pxh"
+                        android:lineSpacingExtra="@dimen/_1pxh"
+                        android:paddingBottom="@dimen/_13pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_13pxv"
+                        android:singleLine="true"
+                        android:text="@string/lbl_l"
+                        android:textAllCaps="false"
+                        style="@style/btnSolidRoundedOutline" tools:text="@string/lbl_l"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:ellipsize="end" android:gravity="center"
+                        android:id="@+id/btnXl"
+                        android:layout_height="@dimen/_40pxv"
+                        android:layout_marginStart="@dimen/_22pxh"
+                        android:layout_width="@dimen/_100pxh"
+                        android:lineSpacingExtra="@dimen/_1pxh"
+                        android:paddingBottom="@dimen/_13pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_13pxv"
+                        android:singleLine="true"
+                        android:text="@string/lbl_xl"
+                        android:textAllCaps="false"
+                        style="@style/btnSolidRoundedOutline" tools:text="@string/lbl_xl"/>
+                </LinearLayout>
+            </LinearLayout>
+            <View android:background="@color/gray_500_71"
+                android:id="@+id/lineLineOne"
+                android:layout_height="@dimen/_1pxv"
+                android:layout_marginTop="@dimen/_24pxv" android:layout_width="@dimen/_375pxh"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtSizeinfo"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15pxh"
+                android:layout_marginStart="@dimen/_15pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{addingToFavoritesVM.addingToFavoritesModel.txtSizeinfo}"
+                style="@style/txtMetropolisregular16" tools:text="@string/lbl_size_info"/>
+            <View android:background="@color/gray_500_71"
+                android:id="@+id/lineLineTwo"
+                android:layout_height="@dimen/_1pxv"
+                android:layout_marginTop="@dimen/_16pxv" android:layout_width="@dimen/_375pxh"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/btnAddToFavoritesOne"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20pxv"
+                android:layout_marginEnd="@dimen/_15pxh"
+                android:layout_marginStart="@dimen/_15pxh"
+                android:layout_marginTop="@dimen/_27pxv"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:paddingBottom="@dimen/_17pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_17pxv"
+                android:singleLine="true"
+                android:text="@string/msg_add_to_favorite"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded_2" tools:text="@string/msg_add_to_favorite"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

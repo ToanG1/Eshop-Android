@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="mainPageVM" type="com.nguyenvansapplication.app.modules.mainpage.data.viewmodel.MainPageVM"/>
+    </data>
+    <LinearLayout android:gravity="start" android:id="@+id/linearColumn"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_50">
+        <LinearLayout android:id="@+id/linearMainpage"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylegray_50">
+            <FrameLayout android:gravity="start"
+                android:id="@+id/frameBigBanner"
+                android:layout_height="@dimen/_492pxv" android:layout_width="match_parent">
+                <ImageView android:id="@+id/imageImage"
+                    android:layout_gravity="top|start"
+                    android:layout_height="@dimen/_362pxv"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    imageRes="@{@drawable/img_image_362x375}"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_image_362x375"/>
+                <FrameLayout android:id="@+id/frameStackfashionsale"
+                    android:layout_gravity="start"
+                    android:layout_height="@dimen/_492pxv" android:layout_width="match_parent">
+                    <ImageView android:id="@+id/imageImageOne"
+                        android:layout_gravity="start"
+                        android:layout_height="@dimen/_492pxh"
+                        android:layout_width="match_parent"
+                        android:scaleType="fitXY"
+                        imageRes="@{@drawable/img_image_492x375}"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_image_492x375"/>
+                    <LinearLayout
+                        android:id="@+id/linearColumnfashionsale"
+                        android:layout_gravity="bottom|start"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10pxv"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical" style="@style/groupStyle">
+                        <TextView android:id="@+id/txtFashionsale"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_15pxh"
+                            android:layout_marginStart="@dimen/_15pxh"
+                            android:layout_marginTop="@dimen/_238pxv"
+                            android:layout_width="match_parent"
+                            android:text="@{mainPageVM.mainPageModel.txtFashionsale}"
+                            style="@style/txtMetropolisblack48" tools:text="@string/lbl_fashion_sale"/>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:id="@+id/btnCheck"
+                            android:layout_height="@dimen/_36pxv"
+                            android:layout_marginBottom="@dimen/_32pxv"
+                            android:layout_marginEnd="@dimen/_10pxh"
+                            android:layout_marginStart="@dimen/_10pxh"
+                            android:layout_marginTop="@dimen/_18pxv"
+                            android:layout_width="@dimen/_160pxh"
+                            android:lineSpacingExtra="@dimen/_1pxh"
+                            android:paddingBottom="@dimen/_11pxv"
+                            android:paddingEnd="@dimen/_30pxh"
+                            android:paddingStart="@dimen/_30pxh"
+                            android:paddingTop="@dimen/_11pxv"
+                            android:singleLine="true"
+                            android:text="@string/lbl_check"
+                            android:textAllCaps="false"
+                            style="@style/btnSolidRounded" tools:text="@string/lbl_check"/>
+                    </LinearLayout>
+                </FrameLayout>
+            </FrameLayout>
+            <LinearLayout android:gravity="start"
+                android:id="@+id/linearColumntitle"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_31pxv"
+                android:layout_width="match_parent" android:orientation="vertical">
+                <LinearLayout android:gravity="start"
+                    android:id="@+id/linearRowtitle"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtTitle"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.65"
+                        android:layout_width="0dp"
+                        android:singleLine="true"
+                        android:text="@{mainPageVM.mainPageModel.txtTitle}"
+                        style="@style/txtMetropolisbold34" tools:text="@string/lbl_new"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtSubtitle"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_2pxv"
+                        android:layout_marginStart="@dimen/_232pxh"
+                        android:layout_marginTop="@dimen/_20pxv"
+                        android:layout_weight="0.35"
+                        android:layout_width="0dp"
+                        android:singleLine="true"
+                        android:text="@{mainPageVM.mainPageModel.txtSubtitle}"
+                        style="@style/txtMetropolisregular11" tools:text="@string/lbl_view_all"/>
+                </LinearLayout>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtSubtitleOne"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:layout_marginStart="@dimen/_2pxh"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{mainPageVM.mainPageModel.txtSubtitleOne}"
+                    style="@style/txtMetropolisregular11_1" tools:text="@string/msg_you_ve_never_se"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMainPage"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:layout_marginTop="@dimen/_22pxv"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    itemSpace="@{@dimen/_16pxh}" tools:itemCount="3" tools:listitem="@layout/row_main_page"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font app:font="@font/metropolisbold" app:fontWeight="700"/>
+    <font app:font="@font/metropolisregular" app:fontWeight="400"/>
+    <font app:font="@font/metropolismedium" app:fontWeight="500"/>
+    <font app:font="@font/metropolissemibold" app:fontWeight="600"/>
+    <font app:font="@font/metropolisblack" app:fontWeight="900"/>
+</font-family>

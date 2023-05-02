@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="successVM" type="com.nguyenvansapplication.app.modules.success.data.viewmodel.SuccessVM"/>
+    </data>
+    <LinearLayout android:id="@+id/linearSuccess"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylewhite_A700">
+        <ImageView android:id="@+id/imageBags"
+            android:layout_gravity="start"
+            android:layout_height="@dimen/_210pxh"
+            android:layout_marginEnd="@dimen/_70pxh"
+            android:layout_marginStart="@dimen/_70pxh"
+            android:layout_marginTop="@dimen/_150pxv"
+            android:layout_width="@dimen/_208pxh"
+            android:scaleType="fitXY" android:src="@drawable/img_bags"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_bags"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtSuccess"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18pxh"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_47pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="@{successVM.successModel.txtSuccess}"
+            style="@style/txtMetropolisbold34_3" tools:text="@string/lbl_success"/>
+        <TextView android:gravity="center_horizontal"
+            android:id="@+id/txtDescription"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18pxh"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_15pxv"
+            android:layout_width="match_parent"
+            android:text="@{successVM.successModel.txtDescription}"
+            style="@style/txtMetropolisregular14_4" tools:text="@string/msg_your_order_will"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnContinueShopping"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_14pxh"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_163pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_1pxh"
+            android:paddingBottom="@dimen/_17pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_17pxv" android:singleLine="true"
+            android:text="@string/msg_continue_shoppi2"
+            android:textAllCaps="false" style="@style/btnSolidRounded_2" tools:text="@string/msg_continue_shoppi2"/>
+    </LinearLayout>
+</layout>

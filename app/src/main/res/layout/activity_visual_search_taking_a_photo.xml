@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="visualSearchTakingAPhotoVM" type="com.nguyenvansapplication.app.modules.visualsearchtakingaphoto.data.viewmodel.VisualSearchTakingAPhotoVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStackarrowleft"
+        android:layout_height="match_parent" android:layout_width="match_parent">
+        <LinearLayout android:id="@+id/linearVisualSearchT"
+            android:layout_gravity="start"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylewhite_A700">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarToolbar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:contentInsetStart="0dp" style="@style/groupStylegray_900">
+                <LinearLayout android:gravity="start"
+                    android:id="@+id/linearLeftAction"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal" style="@style/groupStylegray_51">
+                    <ImageView android:id="@+id/imageArrowleft"
+                        android:layout_height="@dimen/_16pxh"
+                        android:layout_marginBottom="@dimen/_16pxv"
+                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_marginTop="@dimen/_12pxv"
+                        android:layout_width="@dimen/_9pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_arrowleft"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtHeadline"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_12pxv"
+                        android:layout_marginEnd="@dimen/_77pxh"
+                        android:layout_marginStart="@dimen/_52pxh"
+                        android:layout_marginTop="@dimen/_13pxv"
+                        android:layout_weight="0.96"
+                        android:layout_width="0dp"
+                        android:lineSpacingExtra="@dimen/_1pxh"
+                        android:singleLine="true"
+                        android:text="@{visualSearchTakingAPhotoVM.visualSearchTakingAPhotoModel.txtHeadline}"
+                        style="@style/txtMetropolissemibold18" tools:text="@string/msg_search_by_takin"/>
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <ImageView android:id="@+id/imageD3bdd2cbe99a1cFour"
+                android:layout_height="@dimen/_618pxh"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                imageRes="@{@drawable/img_d3bdd2cbe99a1c4}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_d3bdd2cbe99a1c4"/>
+            <LinearLayout android:id="@+id/linearRowcontrast"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal" style="@style/groupStylewhite_8">
+                <ImageView android:id="@+id/imageContrast"
+                    android:layout_height="@dimen/_20pxh"
+                    android:layout_marginBottom="@dimen/_59pxv"
+                    android:layout_marginStart="@dimen/_98pxh"
+                    android:layout_marginTop="@dimen/_27pxv"
+                    android:layout_width="@dimen/_10pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_contrast"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_contrast"/>
+                <ImageView android:id="@+id/imageReply"
+                    android:layout_height="@dimen/_22pxh"
+                    android:layout_marginBottom="@dimen/_58pxv"
+                    android:layout_marginEnd="@dimen/_94pxh"
+                    android:layout_marginStart="@dimen/_157pxh"
+                    android:layout_marginTop="@dimen/_26pxv"
+                    android:layout_width="@dimen/_16pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_reply"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_reply"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:backgroundTint="@color/red_700"
+            android:id="@+id/floatingBtnFloatingactionbutton"
+            android:layout_gravity="bottom|center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_161pxh"
+            android:layout_marginStart="@dimen/_161pxh"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_width="wrap_content"
+            app:fabCustomSize="@dimen/_52pxh"
+            app:srcCompat="@drawable/img_baselinephoto" app:tint="@color/white_A700"/>
+    </FrameLayout>
+</layout>

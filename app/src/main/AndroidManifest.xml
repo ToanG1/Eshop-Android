@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest package="com.nguyenvansapplication.app" xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name" android:largeHeap="true"
+        android:name="com.nguyenvansapplication.app.appcomponents.di.MyApp"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true" android:theme="@style/Theme.MyApp" android:usesCleartextTraffic="true">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <activity
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" android:name="com.facebook.FacebookActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <activity
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" android:name="com.facebook.FacebookActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.success.ui.SuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true"
+            android:name="com.nguyenvansapplication.app.modules.loginpage.ui.LoginPageActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.mybagcheckout.ui.MyBagCheckoutActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.mainpagecontainer.ui.MainPageContainerActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.addshippingaddress.ui.AddShippingAddressActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.visualsearchtakingaphoto.ui.VisualSearchTakingAPhotoActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.visualsearchfinding.ui.VisualSearchFindingActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.catalogone.ui.CatalogOneActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.favoritesmodules.ui.FavoritesModulesActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.filterslist.ui.FiltersListActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.successone.ui.SuccessOneActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.catalogtwo.ui.CatalogTwoActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.filters.ui.FiltersActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.visualsearchcroptheitem.ui.VisualSearchCropTheItemActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.mybag.ui.MyBagActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.mainthree.ui.MainThreeActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.myprofilesettings.ui.MyProfileSettingsActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.paymentcardsone.ui.PaymentCardsOneActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.shippingaddresses.ui.ShippingAddressesActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.ratingandreviews.ui.RatingAndReviewsActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.ratingandreviewswithphoto.ui.RatingAndReviewsWithPhotoActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.categoriestwo.ui.CategoriesTwoActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.forgotpassword.ui.ForgotPasswordActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.myprofilemyordersorderdetails.ui.MyProfileMyOrdersOrderDetailsActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.myprofile.ui.MyProfileActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.maintwo.ui.MainTwoActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.signuppage.ui.SignUpPageActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nguyenvansapplication.app.modules.visualsearch.ui.VisualSearchActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

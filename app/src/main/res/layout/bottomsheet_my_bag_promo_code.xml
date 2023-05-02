@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="myBagPromoCodeVM" type="com.nguyenvansapplication.app.modules.mybagpromocode.data.viewmodel.MyBagPromoCodeVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearMyBagPromoCo"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" android:orientation="vertical">
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearPromoCodes"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylegray_50cornerRadius">
+            <View
+                android:background="@drawable/rectangle_bg_gray_500_radius_3"
+                android:id="@+id/lineRectangleNineteen"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/_6pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_14pxv" android:layout_width="@dimen/_60pxh"/>
+            <LinearLayout android:id="@+id/linearRowenteryourprom"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_32pxv"
+                android:layout_width="match_parent"
+                android:orientation="horizontal" style="@style/groupStylewhite_2">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtEnteryourprom"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginTop="@dimen/_11pxv"
+                    android:layout_weight="0.81"
+                    android:layout_width="0dp"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="@{myBagPromoCodeVM.myBagPromoCodeModel.txtEnteryourprom}"
+                    style="@style/txtMetropolismedium14_2" tools:text="@string/msg_enter_your_prom"/>
+                <FrameLayout android:id="@+id/frameEnterbuttonin"
+                    android:layout_height="@dimen/_36pxv"
+                    android:layout_marginStart="@dimen/_129pxh"
+                    android:layout_width="@dimen/_36pxh" style="@style/groupStylegray_900cornerRadius">
+                    <ImageView android:id="@+id/imageArrowright"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_12pxh"
+                        android:layout_marginHorizontal="@dimen/_12pxh"
+                        android:layout_marginVertical="@dimen/_12pxv"
+                        android:layout_width="@dimen/_12pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_arrowright"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowright"/>
+                </FrameLayout>
+            </LinearLayout>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtYourPromoCode"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_32pxv"
+                android:layout_width="wrap_content"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:singleLine="true"
+                android:text="@{myBagPromoCodeVM.myBagPromoCodeModel.txtYourPromoCode}"
+                style="@style/txtMetropolissemibold18" tools:text="@string/msg_your_promo_code"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:gravity="center_horizontal"
+                android:id="@+id/recyclerListten"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                itemSpace="@{@dimen/_24pxh}" tools:itemCount="3" tools:listitem="@layout/row_listten"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

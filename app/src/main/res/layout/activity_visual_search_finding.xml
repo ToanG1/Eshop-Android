@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="visualSearchFindingVM" type="com.nguyenvansapplication.app.modules.visualsearchfinding.data.viewmodel.VisualSearchFindingVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearVisualSearchF"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_50">
+        <ImageView android:id="@+id/imageSearch"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_45pxh"
+            android:layout_marginEnd="@dimen/_64pxh"
+            android:layout_marginStart="@dimen/_64pxh"
+            android:layout_marginTop="@dimen/_276pxv"
+            android:layout_width="@dimen/_45pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_search_red_700_45x45"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_search_red_700_45x45"/>
+        <TextView android:gravity="center_horizontal"
+            android:id="@+id/txtFindingsimilar"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_63pxh"
+            android:layout_marginStart="@dimen/_64pxh"
+            android:layout_marginTop="@dimen/_16pxv"
+            android:layout_width="match_parent"
+            android:text="@{visualSearchFindingVM.visualSearchFindingModel.txtFindingsimilar}"
+            style="@style/txtMetropolisbold34" tools:text="@string/msg_finding_similar"/>
+    </LinearLayout>
+</layout>

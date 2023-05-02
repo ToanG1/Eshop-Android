@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="categoriesRowModel" type="com.nguyenvansapplication.app.modules.categories.data.model.CategoriesRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearCategorycard"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal" style="@style/groupStylewhite_A700cornerRadius">
+        <TextView android:ellipsize="end" android:id="@+id/txtClothes"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_42pxv"
+            android:layout_marginStart="@dimen/_23pxh"
+            android:layout_marginTop="@dimen/_39pxv"
+            android:layout_weight="0.28" android:layout_width="0dp"
+            android:lineSpacingExtra="@dimen/_1pxh"
+            android:singleLine="true"
+            android:text="@{categoriesRowModel.txtClothes}"
+            style="@style/txtMetropolissemibold18" tools:text="@string/lbl_clothes"/>
+        <FrameLayout android:id="@+id/frameStack"
+            android:layout_height="@dimen/_100pxv"
+            android:layout_marginStart="@dimen/_82pxh" android:layout_width="@dimen/_171pxh">
+            <ImageView android:id="@+id/imageImageFortyOneOne"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/_100pxh"
+                android:layout_width="@dimen/_171pxh"
+                android:scaleType="fitXY" cornerRadius="@{@dimen/_8pxh}"
+                imageRes="@{@drawable/img_image41}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_image41"/>
+            <ImageView android:id="@+id/imageImage"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/_100pxh"
+                android:layout_width="@dimen/_171pxh"
+                android:scaleType="fitXY" cornerRadius="@{@dimen/_8pxh}"
+                imageRes="@{@drawable/img_image_100x171}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_image_100x171"/>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

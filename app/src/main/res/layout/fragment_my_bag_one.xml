@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="myBagOneVM" type="com.nguyenvansapplication.app.modules.mybagone.data.viewmodel.MyBagOneVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearMyBagOne"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_11pxv"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_50">
+        <LinearLayout android:gravity="end"
+            android:id="@+id/linearColumnsearch"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/_14pxh"
+            android:layout_marginStart="@dimen/_14pxh"
+            android:layout_weight="1.0"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <ImageView android:id="@+id/imageSearch"
+                android:layout_height="@dimen/_17pxh"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_width="@dimen/_17pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_search_gray_900"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_search_gray_900"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtHeadline"
+                android:layout_gravity="start"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_220pxh"
+                android:layout_marginTop="@dimen/_34pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{myBagOneVM.myBagOneModel.txtHeadline}"
+                style="@style/txtMetropolisbold34" tools:text="@string/lbl_my_bag"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:gravity="center_horizontal"
+                android:id="@+id/recyclerMyBagOne"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_2pxh"
+                android:layout_marginTop="@dimen/_22pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                itemSpace="@{@dimen/_24pxh}" tools:itemCount="3" tools:listitem="@layout/row_my_bag_one"/>
+            <LinearLayout android:id="@+id/linearRowenteryourprom"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_2pxh"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_width="match_parent"
+                android:orientation="horizontal" style="@style/groupStylewhite_2">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtEnteryourprom"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginTop="@dimen/_11pxv"
+                    android:layout_weight="0.81"
+                    android:layout_width="0dp"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="@{myBagOneVM.myBagOneModel.txtEnteryourprom}"
+                    style="@style/txtMetropolismedium14_2" tools:text="@string/msg_enter_your_prom"/>
+                <FrameLayout android:id="@+id/frameEnterbuttonin"
+                    android:layout_height="@dimen/_36pxv"
+                    android:layout_marginStart="@dimen/_129pxh"
+                    android:layout_width="@dimen/_36pxh" style="@style/groupStylegray_900cornerRadius">
+                    <ImageView android:id="@+id/imageArrowright"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_12pxh"
+                        android:layout_marginHorizontal="@dimen/_12pxh"
+                        android:layout_marginVertical="@dimen/_12pxv"
+                        android:layout_width="@dimen/_12pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_arrowright"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowright"/>
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/linearPrice"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_2pxh"
+                android:layout_marginTop="@dimen/_28pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtTotalamount"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2pxv"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_weight="0.7"
+                    android:layout_width="0dp"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="@{myBagOneVM.myBagOneModel.txtTotalamount}"
+                    style="@style/txtMetropolismedium14_2" tools:text="@string/lbl_total_amount"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtPriceThree"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_209pxh"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="@{myBagOneVM.myBagOneModel.txtPriceThree}"
+                    style="@style/txtMetropolissemibold18" tools:text="@string/lbl_124"/>
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/btnCheckOut"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_2pxh"
+                android:layout_marginTop="@dimen/_27pxv"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:paddingBottom="@dimen/_17pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_17pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_check_out"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded_2" tools:text="@string/lbl_check_out"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
