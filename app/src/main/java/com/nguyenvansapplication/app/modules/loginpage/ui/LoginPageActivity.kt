@@ -1,6 +1,8 @@
 package com.nguyenvansapplication.app.modules.loginpage.ui
 
+import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
@@ -15,6 +17,8 @@ import com.nguyenvansapplication.app.appcomponents.facebookauth.FacebookHelper
 import com.nguyenvansapplication.app.appcomponents.googleauth.GoogleHelper
 import com.nguyenvansapplication.app.databinding.ActivityLoginPageBinding
 import com.nguyenvansapplication.app.modules.loginpage.`data`.viewmodel.LoginPageVM
+import com.nguyenvansapplication.app.modules.loginpage.service.LoginApi
+import com.nguyenvansapplication.app.modules.mainpagecontainer.ui.MainPageContainerActivity
 import com.nguyenvansapplication.app.modules.signuppage.ui.SignUpPageActivity
 import kotlin.Int
 import kotlin.String
@@ -29,6 +33,8 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
 
   private lateinit var googleLogin: GoogleHelper
 
+  private lateinit var service: LoginApi
+
   override fun onActivityResult(
     requestCode: Int,
     resultCode: Int,
@@ -41,11 +47,6 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.loginPageVM = viewModel
-    Handler(Looper.getMainLooper()).postDelayed( {
-      val destIntent = SignUpPageActivity.getIntent(this, null)
-      startActivity(destIntent)
-      finish()
-      }, 3000)
       googleLogin = GoogleHelper(this,
       { accountInfo ->
         },{ error -> 
@@ -68,13 +69,26 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
           binding.imageGoogle.setOnClickListener {
             googleLogin.login()
           }
-          binding.imageArrowleft.setOnClickListener {
+          binding.linearColumnarrowleft.setOnClickListener {
+            val destIntent = SignUpPageActivity.getIntent(this, null)
+            startActivity(destIntent)
             finish()
           }
+        binding.btnLogin.setOnClickListener{
+            val destIntent = MainPageContainerActivity.getIntent(this, null)
+          startActivity(destIntent)
+          finish()
         }
+
+      }
 
         companion object {
           const val TAG: String = "LOGIN_PAGE_ACTIVITY"
 
+          fun getIntent(context: Context, bundle: Bundle?): Intent {
+            val destIntent = Intent(context, LoginPageActivity::class.java)
+            destIntent.putExtra("bundle", bundle)
+            return destIntent
+          }
         }
       }

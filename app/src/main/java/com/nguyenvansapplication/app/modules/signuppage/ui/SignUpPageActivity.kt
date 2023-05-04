@@ -14,6 +14,7 @@ import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.appcomponents.facebookauth.FacebookHelper
 import com.nguyenvansapplication.app.appcomponents.googleauth.GoogleHelper
 import com.nguyenvansapplication.app.databinding.ActivitySignUpPageBinding
+import com.nguyenvansapplication.app.modules.loginpage.ui.LoginPageActivity
 import com.nguyenvansapplication.app.modules.signuppage.`data`.viewmodel.SignUpPageVM
 import kotlin.Int
 import kotlin.String
@@ -62,9 +63,16 @@ class SignUpPageActivity : BaseActivity<ActivitySignUpPageBinding>(R.layout.acti
           }
           })
         }
-        binding.imageArrowleft.setOnClickListener {
+        binding.linearColumnarrowleft.setOnClickListener {
+          val destIntent = LoginPageActivity.getIntent(this, null)
+          startActivity(destIntent)
           finish()
         }
+      binding.btnSignUp.setOnClickListener{
+        val destIntent = LoginPageActivity.getIntent(this, null)
+        startActivity(destIntent)
+        finish()
+      }
       }
 
       companion object {

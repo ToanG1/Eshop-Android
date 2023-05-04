@@ -1,5 +1,8 @@
 package com.nguyenvansapplication.app.modules.mainpagecontainer.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
@@ -7,6 +10,7 @@ import com.nguyenvansapplication.app.databinding.ActivityMainPageContainerBindin
 import com.nguyenvansapplication.app.extensions.loadFragment
 import com.nguyenvansapplication.app.modules.categories.ui.CategoriesFragment
 import com.nguyenvansapplication.app.modules.favoriteslists.ui.FavoritesListsFragment
+import com.nguyenvansapplication.app.modules.loginpage.ui.LoginPageActivity
 import com.nguyenvansapplication.app.modules.mainpage.ui.MainPageFragment
 import com.nguyenvansapplication.app.modules.mainpagecontainer.`data`.viewmodel.MainPageContainerVM
 import com.nguyenvansapplication.app.modules.mybagone.ui.MyBagOneFragment
@@ -104,6 +108,10 @@ class MainPageContainerActivity :
 
   companion object {
     const val TAG: String = "MAIN_PAGE_CONTAINER_ACTIVITY"
-
+      fun getIntent(context: Context, bundle: Bundle?): Intent {
+          val destIntent = Intent(context, MainPageContainerActivity::class.java)
+          destIntent.putExtra("bundle", bundle)
+          return destIntent
+      }
   }
 }
