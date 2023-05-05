@@ -1,5 +1,6 @@
 package com.nguyenvansapplication.app.modules.mainpage.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowMainPageBinding
 import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageRowModel
+import com.nguyenvansapplication.app.network.RetrofitHelper
+import com.nguyenvansapplication.app.network.services.Product.ProductApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlin.Int
 import kotlin.collections.List
 
