@@ -59,6 +59,7 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
   }
 
   override fun setUpClicks(): Unit {
+
   }
 
   fun onClickRecyclerMainPage(

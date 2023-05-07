@@ -1,10 +1,14 @@
 package com.nguyenvansapplication.app.modules.maintwo.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityMainTwoBinding
+import com.nguyenvansapplication.app.modules.categoriestwo.ui.CategoriesTwoActivity
 import com.nguyenvansapplication.app.modules.maintwo.`data`.model.MainTwoRowModel
 import com.nguyenvansapplication.app.modules.maintwo.`data`.viewmodel.MainTwoVM
 import kotlin.Int
@@ -45,6 +49,10 @@ class MainTwoActivity : BaseActivity<ActivityMainTwoBinding>(R.layout.activity_m
 
   companion object {
     const val TAG: String = "MAIN_TWO_ACTIVITY"
-
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
+      val destIntent = Intent(context,  MainTwoActivity::class.java)
+      destIntent.putExtra("bundle", bundle)
+      return destIntent
+    }
   }
 }

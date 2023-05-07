@@ -1,5 +1,8 @@
 package com.nguyenvansapplication.app.modules.selectsize.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseBottomsheetDialogFragment
@@ -22,6 +25,10 @@ class SelectSizeBottomsheet :
 
   companion object {
     const val TAG: String = "SELECT_SIZE_BOTTOMSHEET"
-
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
+      val destIntent = Intent(context, SelectSizeBottomsheet::class.java)
+      destIntent.putExtra("bundle", bundle)
+      return destIntent
+    }
   }
 }

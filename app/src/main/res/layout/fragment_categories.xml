@@ -21,15 +21,18 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:orientation="horizontal" style="@style/groupStylegray_51">
-                    <ImageView android:id="@+id/imageArrowleft"
-                        android:layout_height="@dimen/_16pxh"
-                        android:layout_marginBottom="@dimen/_16pxv"
+
+                    <ImageView
+                        android:id="@+id/imageArrowleft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15pxh"
                         android:layout_marginTop="@dimen/_12pxv"
-                        android:layout_width="@dimen/_9pxh"
+                        android:layout_marginBottom="@dimen/_16pxv"
                         android:scaleType="fitXY"
                         android:src="@drawable/img_arrowleft"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_arrowleft" />
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtHeadline"
                         android:layout_height="wrap_content"
@@ -73,16 +76,19 @@
                         android:singleLine="true"
                         android:text="@{categoriesVM.categoriesModel.txtWomen}"
                         style="@style/txtMetropolissemibold16" tools:text="@string/lbl_women"/>
-                    <TextView android:ellipsize="end"
+
+                    <TextView
                         android:id="@+id/txtMen"
-                        android:layout_height="wrap_content"
+                        style="@style/txtMetropolisregular16"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_78pxh"
                         android:layout_marginTop="@dimen/_1pxv"
                         android:layout_weight="0.26"
-                        android:layout_width="0dp"
+                        android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@{categoriesVM.categoriesModel.txtMen}"
-                        style="@style/txtMetropolisregular16" tools:text="@string/lbl_men"/>
+                        tools:text="@string/lbl_men" />
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtKids"
                         android:layout_height="wrap_content"

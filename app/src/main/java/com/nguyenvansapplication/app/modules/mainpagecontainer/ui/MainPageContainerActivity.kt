@@ -25,13 +25,13 @@ class MainPageContainerActivity :
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.mainPageContainerVM = viewModel
-    val destFragment = MainPageFragment.getInstance(null)
+    val destFragment = CategoriesFragment.getInstance(null)
     this.loadFragment(
         R.id.fragmentContainer,
         destFragment,
         bundle = destFragment.arguments, 
-        tag = MainPageFragment.TAG, 
-        addToBackStack = false, 
+        tag = CategoriesFragment.TAG,
+        addToBackStack = true,
         add = false, 
         enter = null, 
         exit = null, 
@@ -107,7 +107,7 @@ class MainPageContainerActivity :
   }
 
   companion object {
-    const val TAG: String = "MAIN_PAGE_CONTAINER_ACTIVITY"
+    const val TAG: String = "CATEGORIES_FRAGMENT"
       fun getIntent(context: Context, bundle: Bundle?): Intent {
           val destIntent = Intent(context, MainPageContainerActivity::class.java)
           destIntent.putExtra("bundle", bundle)

@@ -1,10 +1,15 @@
 package com.nguyenvansapplication.app.modules.forgotpassword.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityForgotPasswordBinding
 import com.nguyenvansapplication.app.modules.forgotpassword.`data`.viewmodel.ForgotPasswordVM
+import com.nguyenvansapplication.app.modules.loginpage.ui.LoginPageActivity
+import com.nguyenvansapplication.app.modules.mainpagecontainer.ui.MainPageContainerActivity
 import kotlin.String
 import kotlin.Unit
 
@@ -19,12 +24,21 @@ class ForgotPasswordActivity :
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
-      finish()
+        val destIntent = LoginPageActivity.getIntent(this, null)
+        startActivity(destIntent)
+        finish()
+
     }
+
   }
 
   companion object {
     const val TAG: String = "FORGOT_PASSWORD_ACTIVITY"
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
+        val destIntent = Intent(context, ForgotPasswordActivity::class.java)
+        destIntent.putExtra("bundle", bundle)
+        return destIntent
+  }
 
   }
 }
