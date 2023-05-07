@@ -335,7 +335,6 @@
         </FrameLayout>
         <androidx.appcompat.widget.AppCompatCheckBox
             android:buttonTint="@color/gray_500" android:ellipsize="end"
-            android:fontFamily="@font/metropolis"
             android:id="@+id/checkBoxUseasdefaultOne"
             android:layout_gravity="start"
             android:layout_height="wrap_content"

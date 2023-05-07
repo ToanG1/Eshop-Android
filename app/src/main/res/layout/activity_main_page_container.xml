@@ -6,7 +6,6 @@
     <LinearLayout android:gravity="start" android:id="@+id/linearColumn"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        scroll
         android:orientation="vertical" style="@style/groupStylegray_50">
         <FrameLayout android:id="@+id/fragmentContainer"
             android:layout_height="match_parent"

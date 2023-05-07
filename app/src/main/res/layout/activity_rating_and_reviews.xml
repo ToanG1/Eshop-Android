@@ -373,7 +373,6 @@
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:buttonTint="@color/gray_500"
                             android:ellipsize="end"
-                            android:fontFamily="@font/metropolis"
                             android:id="@+id/checkBoxWithphoto"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_2pxv"
