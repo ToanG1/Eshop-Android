@@ -4,12 +4,16 @@
     <data>
         <variable name="mainPageVM" type="com.nguyenvansapplication.app.modules.mainpage.data.viewmodel.MainPageVM"/>
     </data>
+    <ScrollView android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff">
+
     <LinearLayout android:gravity="start" android:id="@+id/linearColumn"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical" style="@style/groupStylegray_50">
         <LinearLayout android:id="@+id/linearMainpage"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="vertical" style="@style/groupStylegray_50">
             <FrameLayout android:gravity="start"
@@ -123,4 +127,5 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+    </ScrollView>
 </layout>
