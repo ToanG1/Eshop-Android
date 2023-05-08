@@ -52,6 +52,7 @@ class CatalogOneActivity : BaseActivity<ActivityCatalogOneBinding>(R.layout.acti
       startActivity(destIntent)
       finish()
     }
+   
 
   }
 

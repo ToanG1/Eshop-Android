@@ -36,6 +36,22 @@ class FiltersActivity : BaseActivity<ActivityFiltersBinding>(R.layout.activity_f
       startActivity(destIntent)
       finish()
     }
+    binding.btnApply.setOnClickListener {
+      val destIntent = CatalogOneActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+    binding.btnDiscard.setOnClickListener {
+      val destIntent = CatalogOneActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+    binding.linearColumnbrand.setOnClickListener {
+      val destIntent = FiltersListActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+
   }
 
   companion object {

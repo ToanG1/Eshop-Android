@@ -140,34 +140,44 @@
                     android:text="@{categoriesVM.categoriesModel.txtOffer}"
                     style="@style/txtMetropolismedium14_1" tools:text="@string/lbl_up_to_50_off"/>
             </LinearLayout>
-            <LinearLayout android:id="@+id/linearCategorycard"
+
+            <LinearLayout
+                android:id="@+id/linearCategorycard"
+                style="@style/groupStylewhite_A700cornerRadius"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_16pxh"
                 android:layout_marginStart="@dimen/_16pxh"
                 android:layout_marginTop="@dimen/_16pxv"
-                android:layout_width="match_parent"
-                android:orientation="horizontal" style="@style/groupStylewhite_A700cornerRadius">
-                <TextView android:ellipsize="end"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:orientation="horizontal">
+
+                <TextView
                     android:id="@+id/txtNew"
+                    style="@style/txtMetropolissemibold18"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_42pxv"
                     android:layout_marginStart="@dimen/_23pxh"
                     android:layout_marginTop="@dimen/_39pxv"
+                    android:layout_marginBottom="@dimen/_42pxv"
                     android:layout_weight="0.19"
-                    android:layout_width="0dp"
+                    android:ellipsize="end"
                     android:lineSpacingExtra="@dimen/_1pxh"
                     android:singleLine="true"
                     android:text="@{categoriesVM.categoriesModel.txtNew}"
-                    style="@style/txtMetropolissemibold18" tools:text="@string/lbl_new"/>
-                <ImageView android:id="@+id/imageImageFortyOne"
-                    android:layout_height="@dimen/_100pxh"
-                    android:layout_marginStart="@dimen/_109pxh"
-                    android:layout_width="@dimen/_171pxh"
-                    android:scaleType="fitXY"
+                    tools:text="@string/lbl_new" />
+
+                <ImageView
+                    android:id="@+id/imageImageFortyOne"
                     cornerRadius="@{@dimen/_8pxh}"
                     imageRes="@{@drawable/img_image41}"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_image41"/>
+                    android:layout_width="@dimen/_171pxh"
+                    android:layout_height="@dimen/_100pxh"
+                    android:layout_marginStart="@dimen/_109pxh"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_image41" />
             </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:gravity="center_horizontal"
                 android:id="@+id/recyclerCategories"

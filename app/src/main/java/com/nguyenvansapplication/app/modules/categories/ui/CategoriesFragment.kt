@@ -9,12 +9,15 @@ import com.facebook.CallbackManager
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseFragment
 import com.nguyenvansapplication.app.databinding.FragmentCategoriesBinding
+import com.nguyenvansapplication.app.modules.categories.data.model.CategoriesModel
 import com.nguyenvansapplication.app.modules.categories.`data`.model.CategoriesRowModel
 import com.nguyenvansapplication.app.modules.categories.`data`.viewmodel.CategoriesVM
 import com.nguyenvansapplication.app.modules.categoriestwo.ui.CategoriesTwoActivity
 import com.nguyenvansapplication.app.modules.favoritesmodules.ui.FavoritesModulesActivity
 import com.nguyenvansapplication.app.modules.loginpage.ui.LoginPageActivity
 import com.nguyenvansapplication.app.modules.mainpagecontainer.ui.MainPageContainerActivity
+import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
+import com.nguyenvansapplication.app.network.models.Product.Category
 
 import kotlin.Int
 import kotlin.String
@@ -24,6 +27,10 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
 
   private val viewModel: CategoriesVM by viewModels<CategoriesVM>()
   private var callbackManager: CallbackManager = CallbackManager.Factory.create()
+  override fun finish() {
+    TODO("Not yet implemented")
+  }
+
   override fun onActivityResult(
     requestCode: Int,
     resultCode: Int,
@@ -57,8 +64,13 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
       binding.linearCategories.setOnClickListener {4
 
     }
+    binding.txtWomen.setOnClickListener{
+      startActivity(Intent(requireContext(), CategoriesModel::class.java))
+
+      //startActivity(new ())
+    }
     binding.txtMen.setOnClickListener{
-      startActivity(Intent(requireContext(), FavoritesModulesActivity::class.java))
+      startActivity(Intent(requireContext(), CategoriesModel::class.java))
 
       //startActivity(new ())
     }
@@ -68,6 +80,13 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
     binding.imageSearch.setOnClickListener{
       startActivity(Intent(requireContext(), CategoriesTwoActivity::class.java))
     }
+
+    binding.linearCategorycard.setOnClickListener {
+      startActivity(Intent(requireContext(), ProductCardActivity::class.java))
+    }
+
+
+
 
 
   }

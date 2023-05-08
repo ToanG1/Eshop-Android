@@ -1,10 +1,13 @@
 package com.nguyenvansapplication.app.modules.myprofilemyordersorderdetails.ui
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityMyProfileMyOrdersOrderDetailsBinding
+import com.nguyenvansapplication.app.modules.myprofilemyorders.ui.MyProfileMyOrdersFragment
 import com.nguyenvansapplication.app.modules.myprofilemyordersorderdetails.`data`.model.ListitemRowModel
 import com.nguyenvansapplication.app.modules.myprofilemyordersorderdetails.`data`.viewmodel.MyProfileMyOrdersOrderDetailsVM
 import kotlin.Int
@@ -36,11 +39,23 @@ class MyProfileMyOrdersOrderDetailsActivity :
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
+
+        val destIntent = MyProfileMyOrdersFragment.getIntent(this, null)
+        startActivity(destIntent)
+
       finish()
     }
     binding.imageArrowleftOne.setOnClickListener {
       finish()
     }
+    binding.btnLeaveFeedback.setOnClickListener {
+      finish()
+    }
+    binding.btnReorder.setOnClickListener {
+      finish()
+    }
+
+
   }
 
   fun onClickRecyclerListitem(
@@ -54,6 +69,17 @@ class MyProfileMyOrdersOrderDetailsActivity :
 
   companion object {
     const val TAG: String = "MY_PROFILE_MY_ORDERS_ORDER_DETAILS_ACTIVITY"
+    fun getIntent(context: MyProfileMyOrdersFragment, bundle: Bundle?): Intent {
+      val destIntent = Intent(context, MyProfileMyOrdersOrderDetailsActivity::class.java)
+      destIntent.putExtra("bundle", bundle)
+      return destIntent
+    }
 
+    private fun Intent(
+      context: MyProfileMyOrdersFragment,
+      java: Class<MyProfileMyOrdersOrderDetailsActivity>
+    ): Intent {
+      TODO("Not yet implemented")
+    }
   }
 }

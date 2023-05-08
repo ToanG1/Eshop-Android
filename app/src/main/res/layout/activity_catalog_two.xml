@@ -177,15 +177,18 @@
                             android:text="@{catalogTwoVM.catalogTwoModel.txtPricelowestt}"
                             style="@style/txtMetropolisregular11" tools:text="@string/msg_price_lowest_t"/>
                     </LinearLayout>
-                    <ImageView android:id="@+id/imageMenu"
-                        android:layout_height="@dimen/_14pxh"
-                        android:layout_marginBottom="@dimen/_5pxv"
+
+                    <ImageView
+                        android:id="@+id/imageMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_67pxh"
                         android:layout_marginTop="@dimen/_5pxv"
-                        android:layout_width="@dimen/_17pxh"
+                        android:layout_marginBottom="@dimen/_5pxv"
                         android:scaleType="fitXY"
                         android:src="@drawable/img_menu"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_menu"/>
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_menu" />
                 </LinearLayout>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView

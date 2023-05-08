@@ -8,9 +8,10 @@ import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityProductCardBinding
-import com.nguyenvansapplication.app.modules.catalogone.ui.CatalogOneActivity
 import com.nguyenvansapplication.app.modules.productcard.`data`.model.ProductCardRowModel
 import com.nguyenvansapplication.app.modules.productcard.`data`.viewmodel.ProductCardVM
+import com.nguyenvansapplication.app.modules.productcardselectsize.ui.ProductCardSelectSizeBottomsheet
+import com.nguyenvansapplication.app.modules.ratingandreviews.ui.RatingAndReviewsActivity
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
@@ -42,10 +43,31 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
       finish()
     }
     binding.etDropdownUnsele.setOnClickListener {
-      val destIntent = .getIntent(this, null)
+        val destIntent = ProductCardSelectSizeBottomsheet.getIntent(this, null)
+        startActivity(destIntent)
+      finish()
+    }
+    binding.linearRowstar.setOnClickListener {
+      val destIntent = RatingAndReviewsActivity.getIntent(this, null)
       startActivity(destIntent)
       finish()
     }
+    binding.frameStackdescription.setOnClickListener {
+      val destIntent = RatingAndReviewsActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+    binding.btnAddToCart.setOnClickListener {
+    // Them vào Card
+      finish()
+    }
+    binding.btnClock.setOnClickListener {
+      // Them vào FavoritesModulesActivity
+
+      finish()
+    }
+
+
 
   }
 

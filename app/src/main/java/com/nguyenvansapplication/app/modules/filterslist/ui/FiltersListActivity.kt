@@ -27,7 +27,19 @@ class FiltersListActivity : BaseActivity<ActivityFiltersListBinding>(R.layout.ac
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
       finish()
+
     }
+    binding.btnDiscard.setOnClickListener {
+      val destIntent = FiltersActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+    binding.btnApply.setOnClickListener {
+      val destIntent = FiltersActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+
   }
 
   private fun setUpSearchViewSearchBarInacListener(): Unit {
