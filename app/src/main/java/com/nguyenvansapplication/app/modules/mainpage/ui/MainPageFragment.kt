@@ -1,7 +1,6 @@
 package com.nguyenvansapplication.app.modules.mainpage.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.nguyenvansapplication.app.R
@@ -10,14 +9,9 @@ import com.nguyenvansapplication.app.databinding.FragmentMainPageBinding
 import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageRowModel
 import com.nguyenvansapplication.app.modules.mainpage.`data`.viewmodel.MainPageVM
 import com.nguyenvansapplication.app.network.RetrofitHelper
-import com.nguyenvansapplication.app.network.models.Product.ProductResponse
 import com.nguyenvansapplication.app.network.services.Product.ProductApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Response
-import java.util.Objects
-import javax.security.auth.callback.Callback
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
@@ -51,9 +45,10 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
 
     GlobalScope.launch {
       val result = productApi.getProduct(body)
+      println("list prod")
       if (result.isSuccessful)
       {
-        Log.d("total prod:", result.body()?.productDtoList?.get(0)?.name.toString())
+        result.body()?.productDtoList?.forEach { println(it.name.toString()) }
       }
     }
   }
