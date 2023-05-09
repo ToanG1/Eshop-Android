@@ -6,6 +6,7 @@ class Category {
      val id: String? = null
      val name: String? = null
      val total: Int? = null
+     val avatar: String? = ""
      val createAt: Date? = null
      val updateAt: Date? = null
 }

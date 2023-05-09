@@ -6,15 +6,15 @@ import androidx.fragment.app.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseFragment
 import com.nguyenvansapplication.app.databinding.FragmentMainPageBinding
-import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageRowModel
-import com.nguyenvansapplication.app.modules.mainpage.`data`.viewmodel.MainPageVM
+import com.nguyenvansapplication.app.modules.mainpage.data.model.MainPageRowModel
+import com.nguyenvansapplication.app.modules.mainpage.data.viewmodel.MainPageVM
 import com.nguyenvansapplication.app.network.RetrofitHelper
+import com.nguyenvansapplication.app.network.models.Product.ProductResponse
 import com.nguyenvansapplication.app.network.services.Product.ProductApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlin.Int
-import kotlin.String
-import kotlin.Unit
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment_main_page) {
   private val viewModel: MainPageVM by viewModels<MainPageVM>()
@@ -25,35 +25,38 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
     val mainPageAdapter = MainPageAdapter(viewModel.mainPageList.value?:mutableListOf())
     binding.recyclerMainPage.adapter = mainPageAdapter
     mainPageAdapter.setOnItemClickListener(
-    object : MainPageAdapter.OnItemClickListener {
-      override fun onItemClick(view:View, position:Int, item : MainPageRowModel) {
-        onClickRecyclerMainPage(view, position, item)
+      object : MainPageAdapter.OnItemClickListener {
+        override fun onItemClick(view:View, position:Int, item : MainPageRowModel) {
+          onClickRecyclerMainPage(view, position, item)
+        }
       }
-    }
     )
+
     viewModel.mainPageList.observe(requireActivity()) {
-      mainPageAdapter.updateData(it)
+      val body = mapOf(
+        "currentPage" to "0",
+        "size" to "10"
+      )
+      productApi.getProduct(body).enqueue(object : Callback<ProductResponse>{
+        override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
+          if (response.isSuccessful){
+            var data = response.body()?.productDtoList?.map { MainPageRowModel(it) }!!
+            mainPageAdapter.updateData(data)
+          }
+        }
+
+        override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
+        }
+      })
     }
     binding.mainPageVM = viewModel
-    // launching a new coroutine
-
-    //call api get product
-    val body = mapOf(
-          "currentPage" to "0",
-          "size" to "10"
-    )
-
-    GlobalScope.launch {
-      val result = productApi.getProduct(body)
-      println("list prod")
-      if (result.isSuccessful)
-      {
-        result.body()?.productDtoList?.forEach { println(it.name.toString()) }
-      }
-    }
   }
 
+
+
+
   override fun setUpClicks(): Unit {
+
   }
 
   fun onClickRecyclerMainPage(

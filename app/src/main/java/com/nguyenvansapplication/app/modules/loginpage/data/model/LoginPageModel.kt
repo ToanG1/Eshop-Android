@@ -18,7 +18,7 @@ data class LoginPageModel(
   /**
    * TODO Replace with dynamic value
    */
-  var txtEmailOne: String? = MyApp.getInstance().resources.getString(R.string.msg_muffin_sweet_gm)
+  var txtEmailOne: String? = null
   ,
   /**
    * TODO Replace with dynamic value

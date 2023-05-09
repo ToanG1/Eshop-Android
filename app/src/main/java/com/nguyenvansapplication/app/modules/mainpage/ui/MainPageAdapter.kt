@@ -1,17 +1,13 @@
 package com.nguyenvansapplication.app.modules.mainpage.ui
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowMainPageBinding
 import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageRowModel
-import com.nguyenvansapplication.app.network.RetrofitHelper
-import com.nguyenvansapplication.app.network.services.Product.ProductApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlin.Int
 import kotlin.collections.List
 
@@ -26,15 +22,16 @@ class MainPageAdapter(
   }
 
   override fun onBindViewHolder(holder: RowMainPageVH, position: Int) {
-    val mainPageRowModel = MainPageRowModel()
-    // TODO uncomment following line after integration with data source
-    // val mainPageRowModel = list[position]
+     val mainPageRowModel = list[position]
     holder.binding.mainPageRowModel = mainPageRowModel
+    Glide.with(holder.itemView.getContext()).load(mainPageRowModel.imgSrc).into(holder.itemView.findViewById(R.id.imageImageOne))
   }
 
-  override fun getItemCount(): Int = 3
-  // TODO uncomment following line after integration with data source
-  // return list.size
+  override fun getItemCount(): Int
+  {
+    return list.size
+  }
+
 
   public fun updateData(newData: List<MainPageRowModel>) {
     list = newData
