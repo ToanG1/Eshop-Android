@@ -3,27 +3,26 @@ package com.nguyenvansapplication.app.modules.loginpage.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
-import com.nguyenvansapplication.app.appcomponents.facebookauth.FacebookHelper
 import com.nguyenvansapplication.app.appcomponents.googleauth.GoogleHelper
 import com.nguyenvansapplication.app.databinding.ActivityLoginPageBinding
 import com.nguyenvansapplication.app.modules.favoritesmodules.ui.FavoritesModulesActivity
 import com.nguyenvansapplication.app.modules.forgotpassword.data.model.ForgotPasswordModel
 import com.nguyenvansapplication.app.modules.forgotpassword.ui.ForgotPasswordActivity
 import com.nguyenvansapplication.app.modules.loginpage.`data`.viewmodel.LoginPageVM
-import com.nguyenvansapplication.app.modules.loginpage.service.LoginApi
 import com.nguyenvansapplication.app.modules.mainpagecontainer.ui.MainPageContainerActivity
 import com.nguyenvansapplication.app.modules.signuppage.ui.SignUpPageActivity
+import com.nguyenvansapplication.app.network.RetrofitHelper
+import com.nguyenvansapplication.app.network.models.User.LoginResponse
+import com.nguyenvansapplication.app.network.services.Product.UserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
@@ -33,12 +32,7 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
 
   private var callbackManager: CallbackManager = CallbackManager.Factory.create()
 
-  private val facebookLogin: FacebookHelper = FacebookHelper()
-
-  private lateinit var googleLogin: GoogleHelper
-
-  private lateinit var service: LoginApi
-  //private lateinit var txtForgotyourpas :  ForgotPasswordModel
+  private var userApi = RetrofitHelper.getInstance().create(UserApi::class.java)
 
   override fun onActivityResult(
     requestCode: Int,
@@ -52,27 +46,12 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.loginPageVM = viewModel
-      googleLogin = GoogleHelper(this,
-      { accountInfo ->
-        },{ error -> 
-
-        })
       }
 
       override fun setUpClicks(): Unit {
         binding.btnFacebook.setOnClickListener {
-          LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile"))
-          facebookLogin.login(callbackManager,object : FacebookCallback<LoginResult> {
-            override fun onSuccess(result: LoginResult?) {
-            }
-            override fun onError(error: FacebookException?) {
-            }
-            override fun onCancel() {
-            }
-            })
           }
           binding.imageGoogle.setOnClickListener {
-            googleLogin.login()
           }
 
           binding.linearColumnarrowleft.setOnClickListener {
@@ -80,15 +59,34 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
             startActivity(destIntent)
             finish()
           }
-           binding.btnLogin.setOnClickListener{
-            val destIntent = MainPageContainerActivity.getIntent(this, null)
-          startActivity(destIntent)
-          finish()
-          }
-        binding.btnFacebook.setOnClickListener{
-          val destIntent = MainPageContainerActivity.getIntent(this, null)
-          startActivity(destIntent)
-          finish()
+        binding.btnLogin.setOnClickListener{
+          val body = mapOf(
+            "username" to binding.txtEmailOne.text.toString(),
+            "password" to binding.etTextFieldOrdi.text.toString()
+          )
+          println(body.values)
+          userApi.login(body).enqueue(object : Callback<LoginResponse>{
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+              if( response.isSuccessful ){
+                if(response.body()?.res.equals("Oke")){
+                  val destIntent = MainPageContainerActivity.getIntent(this@LoginPageActivity, null)
+                  startActivity(destIntent)
+                  finish()
+                } else {
+                Toast.makeText(this@LoginPageActivity, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_LONG)
+              }
+              } else
+                Toast.makeText(this@LoginPageActivity, "Có lỗi đã xảy ra, vui lòng thử lại sau!", Toast.LENGTH_LONG)
+
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+              Toast.makeText(this@LoginPageActivity, "Có lỗi đã xảy ra, vui lòng thử lại sau!", Toast.LENGTH_LONG)
+
+            }
+
+          })
+
         }
         binding.txtForgotyourpas.setOnClickListener{
           val destIntent = ForgotPasswordActivity.getIntent(this, null)

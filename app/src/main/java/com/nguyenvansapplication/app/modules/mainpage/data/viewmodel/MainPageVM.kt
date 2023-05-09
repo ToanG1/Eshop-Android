@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageModel
 import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageRowModel
+import com.nguyenvansapplication.app.network.models.Product.ProductDto
 import kotlin.collections.MutableList
 import org.koin.core.KoinComponent
 
