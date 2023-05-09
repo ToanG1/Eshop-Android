@@ -5,11 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.facebook.CallbackManager
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.appcomponents.googleauth.GoogleHelper
 import com.nguyenvansapplication.app.databinding.ActivityLoginPageBinding
+import com.nguyenvansapplication.app.modules.favoritesmodules.ui.FavoritesModulesActivity
+import com.nguyenvansapplication.app.modules.forgotpassword.data.model.ForgotPasswordModel
+import com.nguyenvansapplication.app.modules.forgotpassword.ui.ForgotPasswordActivity
 import com.nguyenvansapplication.app.modules.loginpage.`data`.viewmodel.LoginPageVM
 import com.nguyenvansapplication.app.modules.mainpagecontainer.ui.MainPageContainerActivity
 import com.nguyenvansapplication.app.modules.signuppage.ui.SignUpPageActivity
@@ -29,6 +33,7 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
   private var callbackManager: CallbackManager = CallbackManager.Factory.create()
 
   private var userApi = RetrofitHelper.getInstance().create(UserApi::class.java)
+
   override fun onActivityResult(
     requestCode: Int,
     resultCode: Int,
@@ -48,6 +53,7 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
           }
           binding.imageGoogle.setOnClickListener {
           }
+
           binding.linearColumnarrowleft.setOnClickListener {
             val destIntent = SignUpPageActivity.getIntent(this, null)
             startActivity(destIntent)
@@ -82,6 +88,12 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
           })
 
         }
+        binding.txtForgotyourpas.setOnClickListener{
+          val destIntent = ForgotPasswordActivity.getIntent(this, null)
+          startActivity(destIntent)
+          finish()
+        }
+
 
       }
 

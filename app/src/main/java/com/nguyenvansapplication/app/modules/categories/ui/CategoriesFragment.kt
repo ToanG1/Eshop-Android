@@ -1,8 +1,11 @@
 package com.nguyenvansapplication.app.modules.categories.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.facebook.CallbackManager
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseFragment
 import com.nguyenvansapplication.app.databinding.FragmentCategoriesBinding
@@ -21,10 +24,22 @@ import kotlin.String
 import kotlin.Unit
 
 class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.fragment_categories) {
+
   private val viewModel: CategoriesVM by viewModels<CategoriesVM>()
+
   private val categoryApi = RetrofitHelper.getInstance().create(CategoryApi::class.java)
 
+
+  override fun onActivityResult(
+    requestCode: Int,
+    resultCode: Int,
+    `data`: Intent?
+  ) {
+    callbackManager.onActivityResult(requestCode, resultCode, data)
+    super.onActivityResult(requestCode,resultCode,data)
+  }
   override fun onInitialized(): Unit {
+    //viewModel.navArguments = intent.extras?.getBundle("bundle")
     viewModel.navArguments = arguments
     val categoriesAdapter = CategoriesAdapter(viewModel.categoriesList.value?:mutableListOf())
     binding.recyclerCategories.adapter = categoriesAdapter
@@ -59,6 +74,34 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
     binding.imageArrowleft.setOnClickListener {
       requireActivity().onBackPressed()
     }
+      binding.linearCategories.setOnClickListener {4
+
+    }
+    binding.txtWomen.setOnClickListener{
+      startActivity(Intent(requireContext(), CategoriesModel::class.java))
+
+      //startActivity(new ())
+    }
+    binding.txtMen.setOnClickListener{
+      startActivity(Intent(requireContext(), CategoriesModel::class.java))
+
+      //startActivity(new ())
+    }
+    binding.txtKids.setOnClickListener{
+      startActivity(Intent(requireContext(), FavoritesModulesActivity::class.java))
+    }
+    binding.imageSearch.setOnClickListener{
+      startActivity(Intent(requireContext(), CategoriesTwoActivity::class.java))
+    }
+
+    binding.linearCategorycard.setOnClickListener {
+      startActivity(Intent(requireContext(), ProductCardActivity::class.java))
+    }
+
+
+
+
+
   }
 
   fun onClickRecyclerCategories(
@@ -79,5 +122,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
       fragment.arguments = bundle
       return fragment
     }
+
   }
 }

@@ -1,10 +1,15 @@
 package com.nguyenvansapplication.app.modules.shippingaddresses.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityShippingAddressesBinding
+import com.nguyenvansapplication.app.modules.addshippingaddress.ui.AddShippingAddressActivity
+import com.nguyenvansapplication.app.modules.mybagcheckout.ui.MyBagCheckoutActivity
 import com.nguyenvansapplication.app.modules.shippingaddresses.`data`.model.Listname2RowModel
 import com.nguyenvansapplication.app.modules.shippingaddresses.`data`.viewmodel.ShippingAddressesVM
 import kotlin.Int
@@ -34,8 +39,21 @@ class ShippingAddressesActivity :
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
+      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
+      startActivity(destIntent)
       finish()
     }
+
+    binding.recyclerListname.setOnClickListener {
+      finish()
+    }
+    binding.btnGrid.setOnClickListener {
+      val destIntent = AddShippingAddressActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+
+
   }
 
   fun onClickRecyclerListname(
@@ -49,6 +67,10 @@ class ShippingAddressesActivity :
 
   companion object {
     const val TAG: String = "SHIPPING_ADDRESSES_ACTIVITY"
-
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
+      val destIntent = Intent(context, ShippingAddressesActivity::class.java)
+      destIntent.putExtra("bundle", bundle)
+      return destIntent
+    }
   }
 }

@@ -35,4 +35,6 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutId: Int) :
         setUpClicks()
         onInitialized()
     }
+
+    abstract fun finish()
 }

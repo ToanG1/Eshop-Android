@@ -101,7 +101,7 @@
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:gravity="center_horizontal"
-                android:id="@+id/recyclerListorder1947034"
+                android:id="@+id/recyclerListorder"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2pxh"
                 android:layout_marginTop="@dimen/_30pxv"

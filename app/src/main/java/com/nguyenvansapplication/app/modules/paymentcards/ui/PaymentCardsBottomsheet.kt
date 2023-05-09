@@ -1,9 +1,13 @@
 package com.nguyenvansapplication.app.modules.paymentcards.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseBottomsheetDialogFragment
 import com.nguyenvansapplication.app.databinding.BottomsheetPaymentCardsBinding
+import com.nguyenvansapplication.app.modules.mybagcheckout.ui.MyBagCheckoutActivity
 import com.nguyenvansapplication.app.modules.paymentcards.`data`.viewmodel.PaymentCardsVM
 import kotlin.String
 import kotlin.Unit
@@ -19,10 +23,24 @@ class PaymentCardsBottomsheet :
   }
 
   override fun setUpClicks(): Unit {
+
+    binding.btnAddCard.setOnClickListener {
+      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
   }
 
-  companion object {
-    const val TAG: String = "PAYMENT_CARDS_BOTTOMSHEET"
+      private fun finish() {
+        TODO("Not yet implemented")
+      }
 
+      companion object {
+    const val TAG: String = "PAYMENT_CARDS_BOTTOMSHEET"
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
+      val destIntent = Intent(context, PaymentCardsBottomsheet::class.java)
+      destIntent.putExtra("bundle", bundle)
+      return destIntent
+    }
   }
 }

@@ -1,10 +1,14 @@
 package com.nguyenvansapplication.app.modules.mybagpromocode.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseBottomsheetDialogFragment
 import com.nguyenvansapplication.app.databinding.BottomsheetMyBagPromoCodeBinding
+import com.nguyenvansapplication.app.modules.mybagcheckout.ui.MyBagCheckoutActivity
 import com.nguyenvansapplication.app.modules.mybagpromocode.`data`.model.ListtenRowModel
 import com.nguyenvansapplication.app.modules.mybagpromocode.`data`.viewmodel.MyBagPromoCodeVM
 import kotlin.Int
@@ -34,9 +38,25 @@ class MyBagPromoCodeBottomsheet :
   }
 
   override fun setUpClicks(): Unit {
+
+    binding.frameEnterbuttonin.setOnClickListener {
+      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+    binding.recyclerListten.setOnClickListener {
+      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
+      startActivity(destIntent)
+      finish()
+    }
+
   }
 
-  fun onClickRecyclerListten(
+      private fun finish() {
+        TODO("Not yet implemented")
+      }
+
+      fun onClickRecyclerListten(
     view: View,
     position: Int,
     item: ListtenRowModel
@@ -47,6 +67,10 @@ class MyBagPromoCodeBottomsheet :
 
   companion object {
     const val TAG: String = "MY_BAG_PROMO_CODE_BOTTOMSHEET"
-
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
+      val destIntent = Intent(context, MyBagPromoCodeBottomsheet::class.java)
+      destIntent.putExtra("bundle", bundle)
+      return destIntent
+    }
   }
 }

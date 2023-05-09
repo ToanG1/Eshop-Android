@@ -11,14 +11,19 @@
             android:layout_gravity="center_horizontal"
             android:layout_height="@dimen/_204pxv"
             android:layout_marginStart="@dimen/_1pxh" android:layout_width="@dimen/_162pxh">
-            <ImageView android:id="@+id/imageImage"
-                android:layout_gravity="top|start"
-                android:layout_height="@dimen/_184pxh"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_width="@dimen/_162pxh"
-                android:scaleType="fitXY" cornerRadius="@{@dimen/_8pxh}"
+
+            <ImageView
+                android:id="@+id/imageImage"
+                cornerRadius="@{@dimen/_8pxh}"
                 imageRes="@{@drawable/img_image_184x162}"
-                tools:ignore="ContentDescription" tools:src="@drawable/img_image_184x162"/>
+                android:layout_width="@dimen/_162pxh"
+                android:layout_height="@dimen/_184pxh"
+                android:layout_gravity="top|start"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:scaleType="fitXY"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_image_184x162" />
+
             <LinearLayout android:id="@+id/linearRowstar"
                 android:layout_gravity="bottom|start"
                 android:layout_height="wrap_content"
