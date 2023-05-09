@@ -57,7 +57,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
           if (response.isSuccessful){
 
             var data = response.body()?.map{ CategoriesRowModel(it)}
-            println("start")
             data?.let { it1 -> categoriesAdapter.updateData(it1) }
           }
         }

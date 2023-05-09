@@ -14,9 +14,13 @@ data class MainPageRowModel (
   ,
   var txtPrice: String? = MyApp.getInstance().resources.getString(R.string.lbl_30)
   ,
-  var imgSrc: String ? = "")
+  var imgSrc: String ? = ""
+  ,
+  var id: String? = ""
+)
 {
   constructor(productDto: ProductDto) : this() {
+    this.id = productDto.id.toString();
     this.txtItem = productDto.name.toString();
     this.txtNumber = productDto.rating.toString();
     this.txtBrandname = productDto.category?.name.toString();

@@ -8,13 +8,15 @@ import com.bumptech.glide.Glide
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowMainPageBinding
 import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageRowModel
+import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
 import kotlin.Int
 import kotlin.collections.List
 
 class MainPageAdapter(
   var list: List<MainPageRowModel>
 ) : RecyclerView.Adapter<MainPageAdapter.RowMainPageVH>() {
-  private var clickListener: OnItemClickListener? = null
+
+  var OnItemClick:((MainPageRowModel) -> Unit)? = null
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowMainPageVH {
     val view=LayoutInflater.from(parent.context).inflate(R.layout.row_main_page,parent,false)
@@ -22,7 +24,7 @@ class MainPageAdapter(
   }
 
   override fun onBindViewHolder(holder: RowMainPageVH, position: Int) {
-     val mainPageRowModel = list[position]
+    val mainPageRowModel = list[position]
     holder.binding.mainPageRowModel = mainPageRowModel
     Glide.with(holder.itemView.getContext()).load(mainPageRowModel.imgSrc).into(holder.itemView.findViewById(R.id.imageImageOne))
   }
@@ -38,28 +40,16 @@ class MainPageAdapter(
     notifyDataSetChanged()
   }
 
-  fun setOnItemClickListener(clickListener: OnItemClickListener) {
-    this.clickListener = clickListener
-  }
 
-  interface OnItemClickListener {
-    fun onItemClick(
-      view: View,
-      position: Int,
-      item: MainPageRowModel
-    ) {
-    }
-  }
 
   inner class RowMainPageVH(
     view: View
   ) : RecyclerView.ViewHolder(view) {
     val binding: RowMainPageBinding = RowMainPageBinding.bind(itemView)
     init {
-      binding.btnNew.setOnClickListener {
-        // TODO replace with value from datasource
-        clickListener?.onItemClick(it, adapterPosition, MainPageRowModel())
-      }
+     itemView.findViewById<View>(R.id.imageImageOne).setOnClickListener {
+       OnItemClick?.invoke(list[adapterPosition])
+     }
     }
   }
 }

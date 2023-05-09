@@ -20,8 +20,7 @@
                     android:layout_width="@dimen/_148pxh"
                     android:scaleType="fitXY"
                     cornerRadius="@{@dimen/_4pxh}"
-                    imageRes="@{@drawable/img_image_184x148}"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_image_184x148"/>
+                    tools:ignore="ContentDescription" />
                 <FrameLayout android:id="@+id/frameStacknew2"
                     android:layout_gravity="start"
                     android:layout_height="@dimen/_184pxv" android:layout_width="@dimen/_148pxh">
@@ -31,8 +30,8 @@
                         android:layout_width="@dimen/_148pxh"
                         android:scaleType="fitXY"
                         cornerRadius="@{@dimen/_4pxh}"
-                        imageRes="@{@drawable/img_image_1}"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_image_1"/>
+                        tools:ignore="ContentDescription"
+                        />
                     <androidx.appcompat.widget.AppCompatButton
                         android:ellipsize="end" android:gravity="center"
                         android:id="@+id/btnNew"
