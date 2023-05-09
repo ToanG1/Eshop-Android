@@ -1,6 +1,7 @@
 package com.nguyenvansapplication.app.modules.mainpage.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.nguyenvansapplication.app.R
@@ -8,6 +9,7 @@ import com.nguyenvansapplication.app.appcomponents.base.BaseFragment
 import com.nguyenvansapplication.app.databinding.FragmentMainPageBinding
 import com.nguyenvansapplication.app.modules.mainpage.data.model.MainPageRowModel
 import com.nguyenvansapplication.app.modules.mainpage.data.viewmodel.MainPageVM
+import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
 import com.nguyenvansapplication.app.network.RetrofitHelper
 import com.nguyenvansapplication.app.network.models.Product.ProductResponse
 import com.nguyenvansapplication.app.network.services.Product.ProductApi
@@ -23,15 +25,17 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = arguments
+
     val mainPageAdapter = MainPageAdapter(viewModel.mainPageList.value?:mutableListOf())
     binding.recyclerMainPage.adapter = mainPageAdapter
-    mainPageAdapter.setOnItemClickListener(
-      object : MainPageAdapter.OnItemClickListener {
-        override fun onItemClick(view:View, position:Int, item : MainPageRowModel) {
-          onClickRecyclerMainPage(view, position, item)
-        }
+
+
+    mainPageAdapter.OnItemClick = {
+      val destIntent = this.context?.let { it1 -> ProductCardActivity.getIntent(it1, null) }
+      if (destIntent != null) {
+        startActivity(destIntent.putExtra("id", it.id))
       }
-    )
+    }
 
     viewModel.mainPageList.observe(requireActivity()) {
       val body = mapOf(
@@ -39,16 +43,15 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
         "size" to "10"
       )
       productApi.getProduct(body).enqueue(object : Callback<ProductResponse>{
-        override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
-          if (response.isSuccessful){
-            var data = response.body()?.productDtoList?.map { MainPageRowModel(it) }!!
-            mainPageAdapter.updateData(data)
-          }
+      override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
+        if (response.isSuccessful){
+          var data = response.body()?.productDtoList?.map { MainPageRowModel(it) }!!
+          mainPageAdapter.updateData(data)
         }
-
-        override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
-        }
-      })
+      }
+      override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
+      }
+    })
     }
     binding.mainPageVM = viewModel
   }
@@ -60,14 +63,6 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
 
   }
 
-  fun onClickRecyclerMainPage(
-    view: View,
-    position: Int,
-    item: MainPageRowModel
-  ): Unit {
-    when(view.id) {
-    }
-  }
 
   companion object {
     const val TAG: String = "MAIN_PAGE_FRAGMENT"

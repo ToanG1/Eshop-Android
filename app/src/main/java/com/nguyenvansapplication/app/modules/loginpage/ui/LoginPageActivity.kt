@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.facebook.CallbackManager
+import com.google.gson.Gson
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityLoginPageBinding
@@ -26,9 +27,11 @@ import kotlin.Unit
 class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activity_login_page) {
   private val viewModel: LoginPageVM by viewModels<LoginPageVM>()
 
-  private var callbackManager: CallbackManager = CallbackManager.Factory.create()
+  private val callbackManager: CallbackManager = CallbackManager.Factory.create()
 
-  private var userApi = RetrofitHelper.getInstance().create(UserApi::class.java)
+  private val userApi = RetrofitHelper.getInstance().create(UserApi::class.java)
+
+
   override fun onActivityResult(
     requestCode: Int,
     resultCode: Int,
@@ -60,14 +63,18 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
             "username" to binding.txtEmailOne.text.toString(),
             "password" to binding.etTextFieldOrdi.text.toString()
           )
-          println(body.values)
           userApi.login(body).enqueue(object : Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
               if( response.isSuccessful ){
                 if(response.body()?.res.equals("Oke")){
+                  val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+                  var editor = sharedPreference.edit()
+                  var gson = Gson()
+                  editor.putString("USER_INFO",  gson.toJson(response.body()?.userResponse))
+                  editor.putString("TOKEN", response.body()?.accessToken)
+                  editor.commit()
                   val destIntent = MainPageContainerActivity.getIntent(this@LoginPageActivity, null)
                   startActivity(destIntent)
-                  finish()
                 } else {
                 Toast.makeText(this@LoginPageActivity, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_LONG)
               }

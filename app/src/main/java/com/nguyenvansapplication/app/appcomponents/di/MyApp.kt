@@ -1,7 +1,6 @@
 package com.nguyenvansapplication.app.appcomponents.di
 
 import android.app.Application
-import com.nguyenvansapplication.app.appcomponents.utility.PreferenceHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.loadKoinModules
@@ -31,7 +30,6 @@ class MyApp : Application() {
     private fun preferenceModule(): Module {
         val prefsModule = module {
             single {
-                PreferenceHelper()
             }
         }
         return prefsModule
