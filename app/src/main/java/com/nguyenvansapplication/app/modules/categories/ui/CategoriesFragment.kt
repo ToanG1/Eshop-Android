@@ -60,7 +60,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
 
             var data = response.body()?.map{ CategoriesRowModel(it)}
             println("start")
-            data?.forEach{ println(it.txtClothes)}
             data?.let { it1 -> categoriesAdapter.updateData(it1) }
           }
         }
