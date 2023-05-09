@@ -29,9 +29,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
   private val categoryApi = RetrofitHelper.getInstance().create(CategoryApi::class.java)
 
   private var callbackManager: CallbackManager = CallbackManager.Factory.create()
-  override fun finish() {
-    TODO("Not yet implemented")
-  }
 
   override fun onActivityResult(
     requestCode: Int,
@@ -99,11 +96,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
     binding.linearCategorycard.setOnClickListener {
       startActivity(Intent(requireContext(), ProductCardActivity::class.java))
     }
-
-
-
-
-
   }
 
   fun onClickRecyclerCategories(

@@ -20,6 +20,7 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
   private val viewModel: MainPageVM by viewModels<MainPageVM>()
   private val productApi = RetrofitHelper.getInstance().create(ProductApi::class.java)
 
+
   override fun onInitialized(): Unit {
     viewModel.navArguments = arguments
     val mainPageAdapter = MainPageAdapter(viewModel.mainPageList.value?:mutableListOf())

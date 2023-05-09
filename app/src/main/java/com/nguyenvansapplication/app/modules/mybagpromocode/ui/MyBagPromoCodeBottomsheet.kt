@@ -40,12 +40,12 @@ class MyBagPromoCodeBottomsheet :
   override fun setUpClicks(): Unit {
 
     binding.frameEnterbuttonin.setOnClickListener {
-      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> MyBagCheckoutActivity.getIntent(it1, null) }
       startActivity(destIntent)
       finish()
     }
     binding.recyclerListten.setOnClickListener {
-      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> MyBagCheckoutActivity.getIntent(it1, null) }
       startActivity(destIntent)
       finish()
     }

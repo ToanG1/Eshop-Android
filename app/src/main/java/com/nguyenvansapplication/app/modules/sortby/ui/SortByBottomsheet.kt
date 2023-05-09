@@ -1,5 +1,6 @@
 package com.nguyenvansapplication.app.modules.sortby.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.viewModels
@@ -25,7 +26,7 @@ class SortByBottomsheet :
 
   companion object {
     const val TAG: String = "SORT_BY_BOTTOMSHEET"
-    fun getIntent(context: CatalogTwoActivity, bundle: Bundle?): Intent {
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
       val destIntent = Intent(context, SortByBottomsheet::class.java)
       destIntent.putExtra("bundle", bundle)
       return destIntent
