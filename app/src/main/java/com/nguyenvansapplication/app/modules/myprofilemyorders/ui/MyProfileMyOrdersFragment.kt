@@ -19,9 +19,6 @@ import kotlin.Unit
 class MyProfileMyOrdersFragment :
     BaseFragment<FragmentMyProfileMyOrdersBinding>(R.layout.fragment_my_profile_my_orders) {
   private val viewModel: MyProfileMyOrdersVM by viewModels<MyProfileMyOrdersVM>()
-  override fun finish() {
-    TODO("Not yet implemented")
-  }
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = arguments
@@ -43,42 +40,26 @@ class MyProfileMyOrdersFragment :
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
-      val destIntent = MyProfileActivity.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> MyProfileActivity.getIntent(it1, null) }
       startActivity(destIntent)
-      finish()
     }
     binding.btnDelivered.setOnClickListener {
-
-      finish()
     }
     binding.txtProcessing.setOnClickListener {
-
-      finish()
     }
     binding.txtCancelled.setOnClickListener {
-
-      finish()
     }
 
     binding.recyclerListorder.setOnClickListener {
       val destIntent = MyProfileMyOrdersOrderDetailsActivity.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
     binding.imageSearch.setOnClickListener {
-
-      finish()
     }
     binding.recyclerListorder.setOnClickListener {
       val destIntent = MyProfileMyOrdersOrderDetailsActivity.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
-
-
-
-
-
   }
 
   fun onClickRecyclerListorder1947034(

@@ -1,5 +1,6 @@
 package com.nguyenvansapplication.app.modules.myprofile.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -73,7 +74,7 @@ class MyProfileActivity : BaseActivity<ActivityMyProfileBinding>(R.layout.activi
 
   companion object {
     const val TAG: String = "MY_PROFILE_ACTIVITY"
-    fun getIntent(context: MyProfileSettingsActivity, bundle: Bundle?): Intent {
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
       val destIntent = Intent(context, MyProfileActivity::class.java)
       destIntent.putExtra("bundle", bundle)
       return destIntent

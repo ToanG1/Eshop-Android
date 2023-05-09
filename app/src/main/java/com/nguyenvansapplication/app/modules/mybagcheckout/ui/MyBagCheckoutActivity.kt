@@ -1,5 +1,6 @@
 package com.nguyenvansapplication.app.modules.mybagcheckout.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -49,7 +50,7 @@ class MyBagCheckoutActivity :
 
   companion object {
     const val TAG: String = "MY_BAG_CHECKOUT_ACTIVITY"
-    fun getIntent(context: ShippingAddressesActivity, bundle: Bundle?): Intent {
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
       val destIntent = Intent(context, MyBagCheckoutActivity::class.java)
       destIntent.putExtra("bundle", bundle)
       return destIntent

@@ -25,7 +25,7 @@ class PaymentCardsBottomsheet :
   override fun setUpClicks(): Unit {
 
     binding.btnAddCard.setOnClickListener {
-      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> MyBagCheckoutActivity.getIntent(it1, null) }
       startActivity(destIntent)
       finish()
     }

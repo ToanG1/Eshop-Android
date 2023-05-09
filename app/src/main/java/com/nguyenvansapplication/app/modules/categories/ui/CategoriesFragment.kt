@@ -1,6 +1,5 @@
 package com.nguyenvansapplication.app.modules.categories.ui
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -12,6 +11,9 @@ import com.nguyenvansapplication.app.databinding.FragmentCategoriesBinding
 import com.nguyenvansapplication.app.modules.categories.data.model.CategoriesModel
 import com.nguyenvansapplication.app.modules.categories.`data`.model.CategoriesRowModel
 import com.nguyenvansapplication.app.modules.categories.`data`.viewmodel.CategoriesVM
+import com.nguyenvansapplication.app.modules.categoriestwo.ui.CategoriesTwoActivity
+import com.nguyenvansapplication.app.modules.favoritesmodules.ui.FavoritesModulesActivity
+import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
 import com.nguyenvansapplication.app.modules.mainpage.data.model.MainPageRowModel
 import com.nguyenvansapplication.app.network.RetrofitHelper
 import com.nguyenvansapplication.app.network.models.Product.Category
@@ -24,11 +26,10 @@ import kotlin.String
 import kotlin.Unit
 
 class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.fragment_categories) {
-
   private val viewModel: CategoriesVM by viewModels<CategoriesVM>()
-
   private val categoryApi = RetrofitHelper.getInstance().create(CategoryApi::class.java)
 
+  private var callbackManager: CallbackManager = CallbackManager.Factory.create()
 
   override fun onActivityResult(
     requestCode: Int,
@@ -57,7 +58,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
 
             var data = response.body()?.map{ CategoriesRowModel(it)}
             println("start")
-            data?.forEach{ println(it.txtClothes)}
             data?.let { it1 -> categoriesAdapter.updateData(it1) }
           }
         }
@@ -97,11 +97,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
     binding.linearCategorycard.setOnClickListener {
       startActivity(Intent(requireContext(), ProductCardActivity::class.java))
     }
-
-
-
-
-
   }
 
   fun onClickRecyclerCategories(

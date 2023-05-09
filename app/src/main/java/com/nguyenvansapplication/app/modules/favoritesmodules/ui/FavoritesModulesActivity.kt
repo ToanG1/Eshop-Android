@@ -1,5 +1,6 @@
 package com.nguyenvansapplication.app.modules.favoritesmodules.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -91,7 +92,7 @@ class FavoritesModulesActivity :
 
   companion object {
     const val TAG: String = "FAVORITES_MODULES_ACTIVITY"
-    fun getIntent(context: FavoritesListsFragment, bundle: Bundle?): Intent {
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
       val destIntent = Intent(context, FavoritesModulesActivity::class.java)
       destIntent.putExtra("bundle", bundle)
       return destIntent

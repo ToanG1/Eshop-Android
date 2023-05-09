@@ -40,44 +40,30 @@ class FavoritesListsFragment :
 
   override fun setUpClicks(): Unit {
     binding.imageFilter.setOnClickListener {
-      val destIntent = FavoritesModulesActivity.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> FavoritesModulesActivity.getIntent(it1, null) }
       startActivity(destIntent)
-      finish()
     }
     binding.txtFilters.setOnClickListener {
-      val destIntent = FavoritesModulesActivity.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> FavoritesModulesActivity.getIntent(it1, null) }
       startActivity(destIntent)
-      finish()
     }
     binding.imageSort.setOnClickListener {
-      val destIntent = SortByBottomsheet.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> SortByBottomsheet.getIntent(it1, null) }
       startActivity(destIntent)
-      finish()
     }
     binding.txtPricelowestt.setOnClickListener {
-      val destIntent = SortByBottomsheet.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> SortByBottomsheet.getIntent(it1, null) }
       startActivity(destIntent)
-      finish()
     }
     binding.imageMenu.setOnClickListener {
-      val destIntent = FavoritesModulesActivity.getIntent(this, null)
+      val destIntent = this.context?.let { it1 -> FavoritesModulesActivity.getIntent(it1, null) }
       startActivity(destIntent)
-      finish()
     }
     binding.recyclerListbrandname.setOnClickListener {
-
-      finish()
     }
-
-
-
-
-
   }
 
-  override fun finish() {
-    TODO("Not yet implemented")
-  }
+
 
 
   fun onClickRecyclerListbrandname(

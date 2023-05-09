@@ -1,5 +1,6 @@
 package com.nguyenvansapplication.app.modules.ratingandreviews.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -66,7 +67,7 @@ class RatingAndReviewsActivity :
 
   companion object {
     const val TAG: String = "RATING_AND_REVIEWS_ACTIVITY"
-    fun getIntent(context: MyProfileMyOrdersFragment, bundle: Bundle?): Intent {
+    fun getIntent(context: Context, bundle: Bundle?): Intent {
       val destIntent = Intent(context, RatingAndReviewsActivity::class.java)
       destIntent.putExtra("bundle", bundle)
       return destIntent
