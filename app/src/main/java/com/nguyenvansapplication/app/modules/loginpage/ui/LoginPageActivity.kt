@@ -28,7 +28,6 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
 
   private var callbackManager: CallbackManager = CallbackManager.Factory.create()
 
-
   private var userApi = RetrofitHelper.getInstance().create(UserApi::class.java)
   override fun onActivityResult(
     requestCode: Int,

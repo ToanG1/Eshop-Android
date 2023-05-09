@@ -14,6 +14,7 @@ import com.nguyenvansapplication.app.modules.categories.`data`.viewmodel.Categor
 import com.nguyenvansapplication.app.modules.categoriestwo.ui.CategoriesTwoActivity
 import com.nguyenvansapplication.app.modules.favoritesmodules.ui.FavoritesModulesActivity
 import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
+import com.nguyenvansapplication.app.modules.mainpage.data.model.MainPageRowModel
 import com.nguyenvansapplication.app.network.RetrofitHelper
 import com.nguyenvansapplication.app.network.models.Product.Category
 import com.nguyenvansapplication.app.network.services.Product.CategoryApi
