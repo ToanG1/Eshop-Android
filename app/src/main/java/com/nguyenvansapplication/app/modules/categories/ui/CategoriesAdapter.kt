@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowCategoriesBinding
 import com.nguyenvansapplication.app.modules.categories.`data`.model.CategoriesRowModel
@@ -21,15 +22,14 @@ class CategoriesAdapter(
   }
 
   override fun onBindViewHolder(holder: RowCategoriesVH, position: Int) {
-    val categoriesRowModel = CategoriesRowModel()
-    // TODO uncomment following line after integration with data source
-    // val categoriesRowModel = list[position]
+     val categoriesRowModel = list[position]
     holder.binding.categoriesRowModel = categoriesRowModel
+    Glide.with(holder.itemView.getContext()).load(categoriesRowModel.imgSrc).into(holder.itemView.findViewById(R.id.imageImage))
   }
 
-  override fun getItemCount(): Int = 3
-  // TODO uncomment following line after integration with data source
-  // return list.size
+  override fun getItemCount(): Int {
+     return list.size
+  }
 
   public fun updateData(newData: List<CategoriesRowModel>) {
     list = newData

@@ -73,7 +73,7 @@
                         android:text="@{loginPageVM.loginPageModel.txtEmail}"
                         tools:text="@string/lbl_email" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/txtEmailOne"
                         style="@style/txtMetropolismedium14_5"
                         android:layout_width="match_parent"
@@ -83,21 +83,9 @@
                         android:ellipsize="end"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{loginPageVM.loginPageModel.txtEmailOne}"
-                        tools:text="@string/msg_muffin_sweet_gm" />
+                        android:text="@{loginPageVM.loginPageModel.txtEmailOne}" />
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageCheckmark"
-                    android:layout_width="@dimen/_19pxh"
-                    android:layout_height="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_24pxv"
-                    android:layout_marginEnd="@dimen/_23pxh"
-                    android:layout_marginBottom="@dimen/_24pxv"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_checkmark"
-                    tools:ignore="ContentDescription"
-                    tools:src="@drawable/img_checkmark" />
             </LinearLayout>
 
             <EditText
