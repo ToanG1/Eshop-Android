@@ -42,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".modules.productcard.ui.CategoryProductListActivity" android:screenOrientation="portrait"/>
         <activity
             android:name="com.nguyenvansapplication.app.modules.mybagcheckout.ui.MyBagCheckoutActivity" android:screenOrientation="portrait"/>
         <activity

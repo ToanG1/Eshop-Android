@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                itemSpace="@{@dimen/_24pxh}" tools:itemCount="3" tools:listitem="@layout/row_my_bag_one"/>
+                itemSpace="@{@dimen/_24pxh}" tools:itemCount="3" tools:listitem="@layout/row_my_cart_box_one"/>
             <LinearLayout android:id="@+id/linearRowenteryourprom"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_1pxh"

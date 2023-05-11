@@ -11,8 +11,12 @@ data class CategoriesRowModel(
   var txtTotal: String? = ""
   ,
   var imgSrc: String? = ""
+  ,
+  var id: String? = null
+
 ){
   constructor(cate: Category) : this(){
+    this.id = cate.id.toString()
     this.txtClothes= cate.name.toString()
     this.txtTotal= cate.total.toString()
     this.imgSrc= cate.avatar.toString()

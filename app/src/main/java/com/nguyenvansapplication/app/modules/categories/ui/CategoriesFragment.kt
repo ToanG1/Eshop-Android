@@ -15,6 +15,7 @@ import com.nguyenvansapplication.app.modules.categoriestwo.ui.CategoriesTwoActiv
 import com.nguyenvansapplication.app.modules.favoritesmodules.ui.FavoritesModulesActivity
 import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
 import com.nguyenvansapplication.app.modules.mainpage.data.model.MainPageRowModel
+import com.nguyenvansapplication.app.modules.productcard.ui.CategoryProductListActivity
 import com.nguyenvansapplication.app.network.RetrofitHelper
 import com.nguyenvansapplication.app.network.models.Product.Category
 import com.nguyenvansapplication.app.network.services.Product.CategoryApi
@@ -44,13 +45,13 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
     viewModel.navArguments = arguments
     val categoriesAdapter = CategoriesAdapter(viewModel.categoriesList.value?:mutableListOf())
     binding.recyclerCategories.adapter = categoriesAdapter
-    categoriesAdapter.setOnItemClickListener(
-    object : CategoriesAdapter.OnItemClickListener {
-      override fun onItemClick(view:View, position:Int, item : CategoriesRowModel) {
-        onClickRecyclerCategories(view, position, item)
-      }
+
+    categoriesAdapter.OnItemClick = {
+      startActivity(Intent(requireContext(), CategoryProductListActivity::class.java)
+        .putExtra("id", it.id)
+        .putExtra("name", it.txtClothes))
     }
-    )
+
     viewModel.categoriesList.observe(requireActivity()) {
       categoryApi.getCategory().enqueue(object : Callback<List<Category>> {
         override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
@@ -73,37 +74,12 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
     binding.imageArrowleft.setOnClickListener {
       requireActivity().onBackPressed()
     }
-      binding.linearCategories.setOnClickListener {4
-
-    }
-    binding.txtWomen.setOnClickListener{
-      startActivity(Intent(requireContext(), CategoriesModel::class.java))
-
-      //startActivity(new ())
-    }
-    binding.txtMen.setOnClickListener{
-      startActivity(Intent(requireContext(), CategoriesModel::class.java))
-
-      //startActivity(new ())
-    }
-    binding.txtKids.setOnClickListener{
-      startActivity(Intent(requireContext(), FavoritesModulesActivity::class.java))
-    }
     binding.imageSearch.setOnClickListener{
       startActivity(Intent(requireContext(), CategoriesTwoActivity::class.java))
     }
 
     binding.linearCategorycard.setOnClickListener {
-      startActivity(Intent(requireContext(), ProductCardActivity::class.java))
-    }
-  }
-
-  fun onClickRecyclerCategories(
-    view: View,
-    position: Int,
-    item: CategoriesRowModel
-  ): Unit {
-    when(view.id) {
+      startActivity(Intent(requireContext(), CategoryProductListActivity::class.java))
     }
   }
 

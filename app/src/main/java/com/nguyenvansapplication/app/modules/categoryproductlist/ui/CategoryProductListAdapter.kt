@@ -6,17 +6,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nguyenvansapplication.app.R
+import com.nguyenvansapplication.app.databinding.RowCategoryProductCardBinding
 import com.nguyenvansapplication.app.databinding.RowProductCardBinding
-import com.nguyenvansapplication.app.modules.productcard.data.model.ProductCardRowModel
+import com.nguyenvansapplication.app.modules.productcard.`data`.model.CategoryProductCardRowModel
 import kotlin.Int
 import kotlin.collections.List
 
-class ProductCardAdapter(
-  var list: List<ProductCardRowModel>
-) : RecyclerView.Adapter<ProductCardAdapter.RowProductCardVH>() {
-  var OnItemCLick:((ProductCardRowModel) -> Unit)? = null
+class CategoryProductListAdapter(
+  var list: List<CategoryProductCardRowModel>
+) : RecyclerView.Adapter<CategoryProductListAdapter.RowProductCardVH>() {
+  var OnItemCLick:((CategoryProductCardRowModel) -> Unit)? = null
+
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowProductCardVH {
-    val view=LayoutInflater.from(parent.context).inflate(R.layout.row_product_card,parent,false)
+    val view=LayoutInflater.from(parent.context).inflate(R.layout.row_category_product_card,parent,false)
     return RowProductCardVH(view)
   }
 
@@ -25,14 +27,14 @@ class ProductCardAdapter(
       Glide.with(holder.itemView.getContext())
       .load(productCardRowModel.imgSrc)
       .into(holder.itemView.findViewById(R.id.imageImageTwo))
-    holder.binding.productCardRowModel = productCardRowModel
+    holder.binding.categoryProductCardRowModel = productCardRowModel
   }
 
   override fun getItemCount(): Int {
     return list.size
   }
 
-  public fun updateData(newData: List<ProductCardRowModel>) {
+  public fun updateData(newData: List<CategoryProductCardRowModel>) {
     list = newData
     notifyDataSetChanged()
   }
@@ -40,7 +42,7 @@ class ProductCardAdapter(
   inner class RowProductCardVH(
     view: View
   ) : RecyclerView.ViewHolder(view) {
-    val binding: RowProductCardBinding = RowProductCardBinding.bind(itemView)
+    val binding: RowCategoryProductCardBinding = RowCategoryProductCardBinding.bind(itemView)
     init{
       itemView.findViewById<View>(R.id.imageImageTwo).setOnClickListener {
         OnItemCLick?.invoke(list[adapterPosition])

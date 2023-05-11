@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nguyenvansapplication.app.modules.mybagone.`data`.model.MyBagOneModel
 import com.nguyenvansapplication.app.modules.mybagone.`data`.model.MyBagOneRowModel
+import com.nguyenvansapplication.app.modules.mybagone.data.model.MyCartBoxOneRowModel
 import kotlin.collections.MutableList
 import org.koin.core.KoinComponent
 
@@ -13,6 +14,6 @@ class MyBagOneVM : ViewModel(), KoinComponent {
 
   var navArguments: Bundle? = null
 
-  val myBagOneList: MutableLiveData<MutableList<MyBagOneRowModel>> =
+  val myBagOneList: MutableLiveData<MutableList<MyCartBoxOneRowModel>> =
       MutableLiveData(mutableListOf())
 }
