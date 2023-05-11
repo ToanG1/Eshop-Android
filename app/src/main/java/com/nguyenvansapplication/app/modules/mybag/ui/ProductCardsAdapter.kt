@@ -22,7 +22,6 @@ class ProductCardsAdapter(
 
   override fun onBindViewHolder(holder: RowProductcardsVH, position: Int) {
     val productcardsRowModel = ProductcardsRowModel()
-    // TODO uncomment following line after integration with data source
     // val productcardsRowModel = list[position]
     holder.binding.productcardsRowModel = productcardsRowModel
   }

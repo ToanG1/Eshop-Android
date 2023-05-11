@@ -13,45 +13,44 @@ import kotlin.collections.List
 class ListbrandnameAdapter(
   var list: List<ListbrandnameRowModel>
 ) : RecyclerView.Adapter<ListbrandnameAdapter.RowListbrandnameVH>() {
-  private var clickListener: OnItemClickListener? = null
-
+  var OnAddItemClick:((ListbrandnameRowModel) -> Unit)? = null
+  var OnDeleteItemClick:((ListbrandnameRowModel) -> Unit)? = null
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowListbrandnameVH {
     val view=LayoutInflater.from(parent.context).inflate(R.layout.row_listbrandname,parent,false)
     return RowListbrandnameVH(view)
   }
 
   override fun onBindViewHolder(holder: RowListbrandnameVH, position: Int) {
-    val listbrandnameRowModel = ListbrandnameRowModel()
-    // TODO uncomment following line after integration with data source
-    // val listbrandnameRowModel = list[position]
+     val listbrandnameRowModel = list[position]
     holder.binding.listbrandnameRowModel = listbrandnameRowModel
   }
 
-  override fun getItemCount(): Int = 3
-  // TODO uncomment following line after integration with data source
-  // return list.size
+  override fun getItemCount(): Int {
+    return list.size
+  }
 
   public fun updateData(newData: List<ListbrandnameRowModel>) {
     list = newData
     notifyDataSetChanged()
   }
 
-  fun setOnItemClickListener(clickListener: OnItemClickListener) {
-    this.clickListener = clickListener
+  public fun removeItem(id: String){
+    list = list.filter { it.id != id }
+    notifyDataSetChanged()
   }
 
-  interface OnItemClickListener {
-    fun onItemClick(
-      view: View,
-      position: Int,
-      item: ListbrandnameRowModel
-    ) {
-    }
-  }
 
   inner class RowListbrandnameVH(
     view: View
   ) : RecyclerView.ViewHolder(view) {
     val binding: RowListbrandnameBinding = RowListbrandnameBinding.bind(itemView)
+    init{
+      itemView.findViewById<View>(R.id.btnSettings).setOnClickListener {
+        OnAddItemClick?.invoke(list[adapterPosition])
+      }
+      itemView.findViewById<View>(R.id.imageClose).setOnClickListener {
+        OnDeleteItemClick?.invoke(list[adapterPosition])
+      }
+    }
   }
 }

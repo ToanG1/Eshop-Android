@@ -181,6 +181,7 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
       )
       productApi.followProduct(body).enqueue(object : Callback<Unit>{
         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+          println("followed "+prodId)
         }
 
         override fun onFailure(call: Call<Unit>, t: Throwable) {

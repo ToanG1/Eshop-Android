@@ -4,6 +4,8 @@
     <data>
         <variable name="myBagVM" type="com.nguyenvansapplication.app.modules.mybag.data.viewmodel.MyBagVM"/>
     </data>
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout android:gravity="center_horizontal"
         android:id="@+id/linearMyBag"
         android:layout_height="match_parent"
@@ -40,6 +42,9 @@
                 android:layout_marginEnd="@dimen/_1pxh"
                 android:layout_marginStart="@dimen/_2pxh"
                 android:layout_marginTop="@dimen/_5pxv" android:layout_width="@dimen/_343pxh">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerProductCards"
                     android:layout_gravity="bottom|start"
@@ -48,7 +53,9 @@
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    itemSpace="@{@dimen/_24pxh}" tools:itemCount="3" tools:listitem="@layout/row_productcards"/>
+                    itemSpace="@{@dimen/_24pxh}"
+                    tools:itemCount="3" tools:listitem="@layout/row_cart_box_cards"/>
+                </ScrollView>
                 <LinearLayout android:id="@+id/linearPopupwindow"
                     android:layout_gravity="top|end"
                     android:layout_height="wrap_content"
@@ -285,4 +292,5 @@
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
+    </ScrollView>
 </layout>

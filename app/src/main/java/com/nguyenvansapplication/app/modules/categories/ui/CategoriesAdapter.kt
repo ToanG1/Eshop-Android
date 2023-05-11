@@ -14,8 +14,7 @@ import kotlin.collections.List
 class CategoriesAdapter(
   var list: List<CategoriesRowModel>
 ) : RecyclerView.Adapter<CategoriesAdapter.RowCategoriesVH>() {
-  private var clickListener: OnItemClickListener? = null
-
+  var OnItemClick: ((CategoriesRowModel) -> Unit)? = null
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowCategoriesVH {
     val view=LayoutInflater.from(parent.context).inflate(R.layout.row_categories,parent,false)
     return RowCategoriesVH(view)
@@ -36,22 +35,14 @@ class CategoriesAdapter(
     notifyDataSetChanged()
   }
 
-  fun setOnItemClickListener(clickListener: OnItemClickListener) {
-    this.clickListener = clickListener
-  }
-
-  interface OnItemClickListener {
-    fun onItemClick(
-      view: View,
-      position: Int,
-      item: CategoriesRowModel
-    ) {
-    }
-  }
-
   inner class RowCategoriesVH(
     view: View
   ) : RecyclerView.ViewHolder(view) {
     val binding: RowCategoriesBinding = RowCategoriesBinding.bind(itemView)
+    init{
+      itemView.findViewById<View>(R.id.linearCategorycard).setOnClickListener {
+        OnItemClick?.invoke(list[adapterPosition])
+      }
+    }
   }
 }
