@@ -4,6 +4,9 @@
     <data>
         <variable name="myBagCheckoutVM" type="com.nguyenvansapplication.app.modules.mybagcheckout.data.viewmodel.MyBagCheckoutVM"/>
     </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout android:gravity="center_horizontal"
         android:id="@+id/linearMyBagCheckout"
         android:layout_height="match_parent"
@@ -97,13 +100,21 @@
                 </LinearLayout>
                 <TextView android:id="@+id/txtAddress"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_22pxv"
                     android:layout_marginEnd="@dimen/_28pxh"
                     android:layout_marginStart="@dimen/_28pxh"
                     android:layout_marginTop="@dimen/_11pxv"
                     android:layout_width="match_parent"
                     android:text="@{myBagCheckoutVM.myBagCheckoutModel.txtAddress}"
                     style="@style/txtMetropolisregular14_1" tools:text="@string/msg_3_newbridge_cou"/>
+                <TextView android:id="@+id/txtPhoneNumber"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_28pxh"
+                    android:layout_marginEnd="@dimen/_28pxh"
+                    android:layout_marginBottom="@dimen/_22pxv"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:text="@{myBagCheckoutVM.myBagCheckoutModel.txtPhoneNumber}"
+                    style="@style/txtMetropolisregular14_1" tools:text="012345678"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout android:gravity="start"
@@ -184,100 +195,17 @@
                 android:singleLine="true"
                 android:text="@{myBagCheckoutVM.myBagCheckoutModel.txtHeadTwo}"
                 style="@style/txtMetropolissemibold16" tools:text="@string/lbl_delivery_method"/>
-            <LinearLayout android:id="@+id/linearRowlayerone"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerShipping"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20pxv"
-                android:layout_width="match_parent" android:orientation="horizontal">
-                <LinearLayout android:gravity="center_horizontal"
-                    android:id="@+id/linearFedex"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.33"
-                    android:layout_width="0dp"
-                    android:orientation="vertical" style="@style/groupStylewhite_A700cornerRadius">
-                    <ImageView android:id="@+id/imageLayerOne"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_height="@dimen/_17pxh"
-                        android:layout_marginEnd="@dimen/_19pxh"
-                        android:layout_marginStart="@dimen/_20pxh"
-                        android:layout_marginTop="@dimen/_17pxv"
-                        android:layout_width="@dimen/_61pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_layer1"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_layer1"/>
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtDuration"
-                        android:layout_gravity="end"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_15pxv"
-                        android:layout_marginEnd="@dimen/_24pxh"
-                        android:layout_marginStart="@dimen/_24pxh"
-                        android:layout_marginTop="@dimen/_11pxv"
-                        android:layout_width="wrap_content"
-                        android:singleLine="true"
-                        android:text="@{myBagCheckoutVM.myBagCheckoutModel.txtDuration}"
-                        style="@style/txtMetropolisregular11_1" tools:text="@string/lbl_2_3_days"/>
-                </LinearLayout>
-                <LinearLayout android:gravity="center_horizontal"
-                    android:id="@+id/linearUsps"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_22pxh"
-                    android:layout_weight="0.33"
-                    android:layout_width="0dp"
-                    android:orientation="vertical" style="@style/groupStylewhite_A700cornerRadius">
-                    <ImageView android:gravity="center_horizontal"
-                        android:id="@+id/imageCar"
-                        android:layout_height="@dimen/_10pxh"
-                        android:layout_marginEnd="@dimen/_9pxh"
-                        android:layout_marginStart="@dimen/_9pxh"
-                        android:layout_marginTop="@dimen/_24pxv"
-                        android:layout_width="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_car"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_car"/>
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtDurationOne"
-                        android:layout_gravity="end"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_15pxv"
-                        android:layout_marginEnd="@dimen/_24pxh"
-                        android:layout_marginStart="@dimen/_24pxh"
-                        android:layout_marginTop="@dimen/_11pxv"
-                        android:layout_width="wrap_content"
-                        android:singleLine="true"
-                        android:text="@{myBagCheckoutVM.myBagCheckoutModel.txtDurationOne}"
-                        style="@style/txtMetropolisregular11_1" tools:text="@string/lbl_2_3_days"/>
-                </LinearLayout>
-                <LinearLayout android:gravity="center_horizontal"
-                    android:id="@+id/linearDhl"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_21pxh"
-                    android:layout_weight="0.33"
-                    android:layout_width="0dp"
-                    android:orientation="vertical" style="@style/groupStylewhite_A700cornerRadius">
-                    <ImageView android:id="@+id/imageTelevision"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_height="@dimen/_16pxh"
-                        android:layout_marginEnd="@dimen/_14pxh"
-                        android:layout_marginStart="@dimen/_15pxh"
-                        android:layout_marginTop="@dimen/_18pxv"
-                        android:layout_width="@dimen/_71pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_television"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_television"/>
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtDurationTwo"
-                        android:layout_gravity="end"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_15pxv"
-                        android:layout_marginEnd="@dimen/_24pxh"
-                        android:layout_marginStart="@dimen/_24pxh"
-                        android:layout_marginTop="@dimen/_11pxv"
-                        android:layout_width="wrap_content"
-                        android:singleLine="true"
-                        android:text="@{myBagCheckoutVM.myBagCheckoutModel.txtDurationTwo}"
-                        style="@style/txtMetropolisregular11_1" tools:text="@string/lbl_2_3_days"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_width="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                tools:itemCount="3"
+                itemSpace="20dp"
+                tools:listitem="@layout/row_shipping_card"/>
+
         </LinearLayout>
         <LinearLayout android:id="@+id/linearOrdersum"
             android:layout_height="wrap_content"
@@ -299,7 +227,6 @@
                 android:layout_marginStart="@dimen/_263pxh"
                 android:layout_weight="0.43" android:layout_width="0dp"
                 android:singleLine="true"
-                android:text="@{myBagCheckoutVM.myBagCheckoutModel.txtPrice}"
                 style="@style/txtMetropolissemibold16" tools:text="@string/lbl_112"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/linearDeliverysum"
@@ -369,4 +296,5 @@
             android:text="@string/lbl_submit_order"
             android:textAllCaps="false" style="@style/btnSolidRounded_2" tools:text="@string/lbl_submit_order"/>
     </LinearLayout>
+    </ScrollView>
 </layout>

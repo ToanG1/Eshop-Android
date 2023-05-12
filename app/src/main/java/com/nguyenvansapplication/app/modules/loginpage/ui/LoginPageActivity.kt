@@ -31,7 +31,6 @@ class LoginPageActivity : BaseActivity<ActivityLoginPageBinding>(R.layout.activi
 
   private val userApi = RetrofitHelper.getInstance().create(UserApi::class.java)
 
-
   override fun onActivityResult(
     requestCode: Int,
     resultCode: Int,

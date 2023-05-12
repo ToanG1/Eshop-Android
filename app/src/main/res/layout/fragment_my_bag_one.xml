@@ -10,6 +10,9 @@
         android:layout_marginTop="@dimen/_11pxv"
         android:layout_width="match_parent"
         android:orientation="vertical" style="@style/groupStylegray_50">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <LinearLayout android:gravity="end"
             android:id="@+id/linearColumnsearch"
             android:layout_height="0dp"
@@ -44,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                itemSpace="@{@dimen/_24pxh}" tools:itemCount="3" tools:listitem="@layout/row_my_cart_box_one"/>
+                itemSpace="@{@dimen/_24pxh}" tools:itemCount="1" tools:listitem="@layout/row_my_cart_box_one"/>
             <LinearLayout android:id="@+id/linearRowenteryourprom"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_1pxh"
@@ -125,5 +128,6 @@
                 android:textAllCaps="false"
                 style="@style/btnSolidRounded_2" tools:text="@string/lbl_check_out"/>
         </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </layout>

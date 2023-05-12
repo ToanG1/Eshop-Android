@@ -37,36 +37,9 @@
             android:layout_marginEnd="@dimen/_28pxh"
             android:layout_marginStart="@dimen/_28pxh"
             android:layout_marginTop="@dimen/_12pxv"
+            android:layout_marginBottom="25dp"
             android:layout_width="match_parent"
             android:text="@{listname2RowModel.txtAddress}"
             style="@style/txtMetropolisregular14_1" tools:text="@string/msg_3_newbridge_cou"/>
-        <LinearLayout android:gravity="start"
-            android:id="@+id/linearCheckboxWitht"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_18pxv"
-            android:layout_marginEnd="@dimen/_28pxh"
-            android:layout_marginStart="@dimen/_28pxh"
-            android:layout_marginTop="@dimen/_16pxv"
-            android:layout_width="match_parent" android:orientation="horizontal">
-            <ImageButton
-                android:background="@drawable/rectangle_bg_gray_900_radius_4"
-                android:id="@+id/btnCheckmark"
-                android:layout_height="@dimen/_20pxh"
-                android:layout_width="@dimen/_20pxh"
-                android:paddingHorizontal="@dimen/_2pxh"
-                android:paddingVertical="@dimen/_2pxv"
-                android:scaleType="fitCenter"
-                android:src="@drawable/img_checkmark_white_a700" tools:ignore="ContentDescription"/>
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtUseastheship"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_2pxv"
-                android:layout_marginStart="@dimen/_13pxh"
-                android:layout_marginTop="@dimen/_3pxv"
-                android:layout_weight="0.9" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{listname2RowModel.txtUseastheship}"
-                style="@style/txtMetropolisregular14_1" tools:text="@string/msg_use_as_the_ship"/>
-        </LinearLayout>
     </LinearLayout>
 </layout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myShippingCardRow"
+            type="com.nguyenvansapplication.app.modules.mybagcheckout.data.model.MyBagCheckoutShippingModel" />
+    </data>
+
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearFedex"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical" style="@style/groupStylewhite_A700cornerRadius">
+        <ImageView android:id="@+id/imageLayerOne"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_17pxh"
+            android:layout_marginEnd="@dimen/_19pxh"
+            android:layout_marginStart="@dimen/_20pxh"
+            android:layout_marginTop="@dimen/_17pxv"
+            android:layout_width="@dimen/_61pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_layer1"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_layer1"/>
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtDuration"
+            android:layout_gravity="end"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_15pxv"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_11pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="@{myShippingCardRow.txtName}"
+            style="@style/txtMetropolisregular11_1" tools:text="shipping option"/>
+    </LinearLayout>
+</layout>

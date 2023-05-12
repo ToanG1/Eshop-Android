@@ -12,6 +12,5 @@ data class MyBagOneModel(
   ,
   var txtTotalamount: String? = MyApp.getInstance().resources.getString(R.string.lbl_total_amount)
   ,
-  var txtPriceThree: String? = MyApp.getInstance().resources.getString(R.string.lbl_124)
-
+  var txtPriceThree: String? = "0"
 )
