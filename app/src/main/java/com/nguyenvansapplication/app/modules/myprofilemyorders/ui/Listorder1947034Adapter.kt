@@ -13,40 +13,24 @@ import kotlin.collections.List
 class Listorder1947034Adapter(
   var list: List<Listorder1947034RowModel>
 ) : RecyclerView.Adapter<Listorder1947034Adapter.RowListorder1947034VH>() {
-  private var clickListener: OnItemClickListener? = null
-
+  var OnItemClick: ((Listorder1947034RowModel) -> Unit)? = null
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowListorder1947034VH {
     val view=LayoutInflater.from(parent.context).inflate(R.layout.row_listorder1947034,parent,false)
     return RowListorder1947034VH(view)
   }
 
   override fun onBindViewHolder(holder: RowListorder1947034VH, position: Int) {
-    val listorder1947034RowModel = Listorder1947034RowModel()
-    // TODO uncomment following line after integration with data source
-    // val listorder1947034RowModel = list[position]
+    val listorder1947034RowModel = list[position]
     holder.binding.listorder1947034RowModel = listorder1947034RowModel
   }
 
-  override fun getItemCount(): Int = 3
-  // TODO uncomment following line after integration with data source
-  // return list.size
+  override fun getItemCount(): Int {
+    return list.size
+  }
 
   public fun updateData(newData: List<Listorder1947034RowModel>) {
     list = newData
     notifyDataSetChanged()
-  }
-
-  fun setOnItemClickListener(clickListener: OnItemClickListener) {
-    this.clickListener = clickListener
-  }
-
-  interface OnItemClickListener {
-    fun onItemClick(
-      view: View,
-      position: Int,
-      item: Listorder1947034RowModel
-    ) {
-    }
   }
 
   inner class RowListorder1947034VH(
@@ -55,8 +39,7 @@ class Listorder1947034Adapter(
     val binding: RowListorder1947034Binding = RowListorder1947034Binding.bind(itemView)
     init {
       binding.btnDetails.setOnClickListener {
-        // TODO replace with value from datasource
-        clickListener?.onItemClick(it, adapterPosition, Listorder1947034RowModel())
+        OnItemClick?.invoke(list[adapterPosition])
       }
     }
   }

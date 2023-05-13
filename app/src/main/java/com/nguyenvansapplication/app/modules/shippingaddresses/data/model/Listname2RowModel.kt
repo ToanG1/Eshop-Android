@@ -2,28 +2,27 @@ package com.nguyenvansapplication.app.modules.shippingaddresses.`data`.model
 
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.di.MyApp
+import com.nguyenvansapplication.app.network.models.User.AddressDto
 import kotlin.String
 
 data class Listname2RowModel(
-  /**
-   * TODO Replace with dynamic value
-   */
-  var txtName: String? = MyApp.getInstance().resources.getString(R.string.lbl_jane_doe)
+  var txtName: String? = ""
   ,
-  /**
-   * TODO Replace with dynamic value
-   */
   var txtEdit: String? = MyApp.getInstance().resources.getString(R.string.lbl_edit)
   ,
-  /**
-   * TODO Replace with dynamic value
-   */
-  var txtAddress: String? = MyApp.getInstance().resources.getString(R.string.msg_3_newbridge_cou)
+  var txtAddress: String? = ""
   ,
-  /**
-   * TODO Replace with dynamic value
-   */
+  var txtPhoneNumber: String? = ""
+  ,
   var txtUseastheship: String? =
       MyApp.getInstance().resources.getString(R.string.msg_use_as_the_ship)
-
-)
+  ,
+  var id:Long? = -1
+){
+  constructor(item: AddressDto) : this() {
+    this.txtName = item.receiverName.toString()
+    this.txtAddress = item.receiverAddress.toString()
+    this.txtPhoneNumber = "0" + item.phoneNumber.toString()
+    this.id = item.id
+  }
+}

@@ -7,6 +7,11 @@ import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityMyProfileBinding
+import com.nguyenvansapplication.app.extensions.loadFragment
+import com.nguyenvansapplication.app.modules.categories.ui.CategoriesFragment
+import com.nguyenvansapplication.app.modules.favoriteslists.ui.FavoritesListsFragment
+import com.nguyenvansapplication.app.modules.mainpage.ui.MainPageFragment
+import com.nguyenvansapplication.app.modules.mybagone.ui.MyBagOneFragment
 import com.nguyenvansapplication.app.modules.mybagpromocode.ui.MyBagPromoCodeBottomsheet
 import com.nguyenvansapplication.app.modules.myprofile.`data`.viewmodel.MyProfileVM
 import com.nguyenvansapplication.app.modules.myprofilemyorders.ui.MyProfileMyOrdersFragment
@@ -26,49 +31,30 @@ class MyProfileActivity : BaseActivity<ActivityMyProfileBinding>(R.layout.activi
   }
 
   override fun setUpClicks(): Unit {
-
-    binding.linearColumnmyorders.setOnClickListener {
-      val destIntent = MyProfileMyOrdersFragment.getIntent(this, null)
-      startActivity(destIntent)
-      finish()
-    }
     binding.linearColumnshippingaddres.setOnClickListener {
       val destIntent = ShippingAddressesActivity.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
     binding.linearColumnpaymentmethods.setOnClickListener {
       val destIntent = PaymentCardsOneActivity.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
     binding.linearColumnpromocodes.setOnClickListener {
       val destIntent = MyBagPromoCodeBottomsheet.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
     binding.linearColumnmyreviews.setOnClickListener {
       val destIntent = RatingAndReviewsActivity.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
      binding.linearLine6.setOnClickListener {
       val destIntent = MyProfileSettingsActivity.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
     binding.linearColumnmatildabrown.setOnClickListener {
-
-      finish()
     }
     binding.imageImage.setOnClickListener {
-
-      finish()
     }
-
-
-
-
 
   }
 

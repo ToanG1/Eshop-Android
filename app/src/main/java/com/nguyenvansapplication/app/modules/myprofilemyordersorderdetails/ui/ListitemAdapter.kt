@@ -21,15 +21,13 @@ class ListitemAdapter(
   }
 
   override fun onBindViewHolder(holder: RowListitemVH, position: Int) {
-    val listitemRowModel = ListitemRowModel()
-    // TODO uncomment following line after integration with data source
-    // val listitemRowModel = list[position]
+    val listitemRowModel = list[position]
     holder.binding.listitemRowModel = listitemRowModel
   }
 
-  override fun getItemCount(): Int = 3
-  // TODO uncomment following line after integration with data source
-  // return list.size
+  override fun getItemCount(): Int {
+    return list.size
+  }
 
   public fun updateData(newData: List<ListitemRowModel>) {
     list = newData

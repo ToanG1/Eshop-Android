@@ -9,6 +9,7 @@ import com.nguyenvansapplication.app.appcomponents.base.BaseFragment
 import com.nguyenvansapplication.app.databinding.FragmentMainPageBinding
 import com.nguyenvansapplication.app.modules.mainpage.data.model.MainPageRowModel
 import com.nguyenvansapplication.app.modules.mainpage.data.viewmodel.MainPageVM
+import com.nguyenvansapplication.app.modules.myprofile.ui.MyProfileActivity
 import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
 import com.nguyenvansapplication.app.network.RetrofitHelper
 import com.nguyenvansapplication.app.network.models.Product.ProductResponse
@@ -60,7 +61,10 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
 
 
   override fun setUpClicks(): Unit {
-
+    binding.btnUser.setOnClickListener {
+      val destIntent = MyProfileActivity.getIntent(this.requireContext(), null)
+      startActivity(destIntent)
+    }
   }
 
 

@@ -86,7 +86,6 @@
                         android:layout_weight="0.65"
                         android:layout_width="0dp"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtHead}"
                         style="@style/txtMetropolissemibold16" tools:text="@string/lbl_order_1947034"/>
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtDate"
@@ -98,7 +97,6 @@
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtDate}"
                         style="@style/txtMetropolisregular14" tools:text="@string/lbl_05_12_2019"/>
                 </LinearLayout>
                 <LinearLayout android:gravity="start"
@@ -116,19 +114,22 @@
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtTrackingnumber}"
-                        style="@style/txtMetropolisregular14" tools:text="@string/msg_tracking_number"/>
-                    <TextView android:ellipsize="end"
+                        android:text="Is Paid"
+                        android:textColor="@color/black"
+                        style="@style/txtMetropolisregular14" tools:text="Is Paid"/>
+
+                    <TextView
                         android:id="@+id/txtIW3475453455"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_1pxv"
-                        android:layout_marginStart="@dimen/_8pxh"
-                        android:layout_weight="0.37"
+                        style="@style/txtMetropolismedium14"
                         android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_8pxh"
+                        android:layout_marginBottom="@dimen/_1pxv"
+                        android:layout_weight="0.37"
+                        android:ellipsize="end"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtIW3475453455}"
-                        style="@style/txtMetropolismedium14" tools:text="@string/lbl_iw3475453455"/>
+                        tools:text="@string/lbl_iw3475453455" />
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtDelivered"
                         android:layout_height="wrap_content"
@@ -138,7 +139,6 @@
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtDelivered}"
                         style="@style/txtMetropolismedium14_4" tools:text="@string/lbl_delivered"/>
                 </LinearLayout>
                 <TextView android:ellipsize="end"
@@ -150,7 +150,6 @@
                     android:layout_width="wrap_content"
                     android:lineSpacingExtra="@dimen/_1pxh"
                     android:singleLine="true"
-                    android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtItemsCounter}"
                     style="@style/txtMetropolismedium14" tools:text="@string/lbl_3_items"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:gravity="center_horizontal"
@@ -197,7 +196,6 @@
                         android:layout_weight="0.63"
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_6pxh"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtAddress}"
                         style="@style/txtMetropolismedium14" tools:text="@string/msg_3_newbridge_cou3"/>
                 </LinearLayout>
                 <LinearLayout android:gravity="start"
@@ -235,7 +233,7 @@
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtCardnumber}"
+                        android:textAlignment="textEnd"
                         style="@style/txtMetropolismedium14" tools:text="@string/msg"/>
                 </LinearLayout>
                 <LinearLayout android:gravity="start"
@@ -253,8 +251,8 @@
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtDeliverymethod}"
-                        style="@style/txtMetropolisregular14" tools:text="@string/msg_delivery_method"/>
+                        android:text="Shipping fee"
+                        style="@style/txtMetropolisregular14" tools:text="Shipping fee"/>
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtPriceThree"
                         android:layout_height="wrap_content"
@@ -264,7 +262,7 @@
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtPriceThree}"
+                        android:textAlignment="textEnd"
                         style="@style/txtMetropolismedium14" tools:text="@string/msg_fedex_3_days"/>
                 </LinearLayout>
                 <LinearLayout android:gravity="start"
@@ -274,16 +272,19 @@
                     android:layout_marginStart="@dimen/_1pxh"
                     android:layout_marginTop="@dimen/_28pxv"
                     android:layout_width="match_parent" android:orientation="horizontal">
-                    <TextView android:ellipsize="end"
+
+                    <TextView
                         android:id="@+id/txtDiscount"
-                        android:layout_height="wrap_content"
+                        style="@style/txtMetropolisregular14"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/_1pxv"
                         android:layout_weight="0.26"
-                        android:layout_width="0dp"
+                        android:ellipsize="end"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtDiscount}"
-                        style="@style/txtMetropolisregular14" tools:text="@string/lbl_discount"/>
+                        android:text="Note"
+                        tools:text="Note" />
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtDiscountOne"
                         android:layout_height="wrap_content"
@@ -293,7 +294,7 @@
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtDiscountOne}"
+                        android:textAlignment="textEnd"
                         style="@style/txtMetropolismedium14" tools:text="@string/msg_10_personal_p"/>
                 </LinearLayout>
                 <LinearLayout android:gravity="start"
@@ -306,8 +307,7 @@
                         android:id="@+id/txtTotalAmount"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_1pxv"
-                        android:layout_weight="0.76"
-                        android:layout_width="0dp"
+                        android:layout_width="110dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
                         android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtTotalAmount}"
@@ -315,13 +315,12 @@
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtPriceFour"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_36pxh"
+                        android:layout_marginStart="110dp"
                         android:layout_marginTop="@dimen/_1pxv"
-                        android:layout_weight="0.24"
-                        android:layout_width="0dp"
+                        android:layout_width="150dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
-                        android:text="@{myProfileMyOrdersOrderDetailsVM.myProfileMyOrdersOrderDetailsModel.txtPriceFour}"
+                        android:textAlignment="textEnd"
                         style="@style/txtMetropolismedium14" tools:text="@string/lbl_133"/>
                 </LinearLayout>
                 <LinearLayout android:id="@+id/linearRowreorder"

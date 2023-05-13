@@ -13,45 +13,43 @@ import kotlin.collections.List
 class ListnameAdapter(
   var list: List<Listname2RowModel>
 ) : RecyclerView.Adapter<ListnameAdapter.RowListname2VH>() {
-  private var clickListener: OnItemClickListener? = null
-
+  var OnItemClick:((Listname2RowModel) -> Unit)? = null
+  var OnItemUpdateClick:((Listname2RowModel) -> Unit)? = null
+  var OnItemDeleteClick:((Listname2RowModel) -> Unit)? = null
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowListname2VH {
     val view=LayoutInflater.from(parent.context).inflate(R.layout.row_listname2,parent,false)
     return RowListname2VH(view)
   }
 
   override fun onBindViewHolder(holder: RowListname2VH, position: Int) {
-    val listname2RowModel = Listname2RowModel()
-    // TODO uncomment following line after integration with data source
-    // val listname2RowModel = list[position]
+    val listname2RowModel = list[position]
     holder.binding.listname2RowModel = listname2RowModel
   }
 
-  override fun getItemCount(): Int = 3
-  // TODO uncomment following line after integration with data source
-  // return list.size
+  override fun getItemCount(): Int  {
+    return list.size
+  }
 
   public fun updateData(newData: List<Listname2RowModel>) {
     list = newData
     notifyDataSetChanged()
   }
 
-  fun setOnItemClickListener(clickListener: OnItemClickListener) {
-    this.clickListener = clickListener
-  }
-
-  interface OnItemClickListener {
-    fun onItemClick(
-      view: View,
-      position: Int,
-      item: Listname2RowModel
-    ) {
-    }
-  }
 
   inner class RowListname2VH(
     view: View
   ) : RecyclerView.ViewHolder(view) {
     val binding: RowListname2Binding = RowListname2Binding.bind(itemView)
+    init{
+      itemView.findViewById<View>(R.id.linearAddresscardAc).setOnClickListener {
+        OnItemClick?.invoke(list[adapterPosition])
+      }
+      itemView.findViewById<View>(R.id.txtEdit).setOnClickListener {
+        OnItemUpdateClick?.invoke(list[adapterPosition])
+      }
+      itemView.findViewById<View>(R.id.txtDelete).setOnClickListener {
+        OnItemDeleteClick?.invoke(list[adapterPosition])
+      }
+    }
   }
 }

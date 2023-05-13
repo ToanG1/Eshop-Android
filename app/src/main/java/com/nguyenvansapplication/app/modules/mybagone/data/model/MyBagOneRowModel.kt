@@ -19,12 +19,15 @@ data class MyBagOneRowModel(
   var id: Long? = null
   ,
   var limitQuantity: Int? = null
-){
+  ,
+  var imgSrc: String? = ""
+)  {
   constructor(item: CartItemDto) : this(){
     this.txtItem = item.productDto?.name.toString()
     this.txtOne = item.quantity.toString()
     this.id = item.id
     this.txtPrice = item.productDto?.price.toString()
     this.limitQuantity = item.productDto?.quantity
+    this.imgSrc = item.productDto?.listImages?.get(0).toString()
   }
 }
