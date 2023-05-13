@@ -14,6 +14,8 @@ class ListnameAdapter(
   var list: List<Listname2RowModel>
 ) : RecyclerView.Adapter<ListnameAdapter.RowListname2VH>() {
   var OnItemClick:((Listname2RowModel) -> Unit)? = null
+  var OnItemUpdateClick:((Listname2RowModel) -> Unit)? = null
+  var OnItemDeleteClick:((Listname2RowModel) -> Unit)? = null
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowListname2VH {
     val view=LayoutInflater.from(parent.context).inflate(R.layout.row_listname2,parent,false)
     return RowListname2VH(view)
@@ -41,6 +43,12 @@ class ListnameAdapter(
     init{
       itemView.findViewById<View>(R.id.linearAddresscardAc).setOnClickListener {
         OnItemClick?.invoke(list[adapterPosition])
+      }
+      itemView.findViewById<View>(R.id.txtEdit).setOnClickListener {
+        OnItemUpdateClick?.invoke(list[adapterPosition])
+      }
+      itemView.findViewById<View>(R.id.txtDelete).setOnClickListener {
+        OnItemDeleteClick?.invoke(list[adapterPosition])
       }
     }
   }

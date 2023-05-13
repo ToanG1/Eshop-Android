@@ -67,7 +67,6 @@
                             android:text="@{myProfileVM.myProfileModel.txtMatildaBrown}"
                             style="@style/txtMetropolissemibold18" tools:text="@string/lbl_matilda_brown"/>
                         <TextView android:ellipsize="end"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtEmail"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_1pxh"
@@ -80,55 +79,11 @@
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout android:gravity="start"
-                    android:id="@+id/linearRowmyorders"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_14pxh"
-                    android:layout_marginStart="@dimen/_14pxh"
-                    android:layout_marginTop="@dimen/_46pxv"
-                    android:layout_width="match_parent" android:orientation="horizontal">
-                    <LinearLayout android:gravity="start"
-                        android:id="@+id/linearColumnmyorders"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.98"
-                        android:layout_width="0dp" android:orientation="vertical">
-                        <TextView android:ellipsize="end"
-                            android:id="@+id/txtMyorders"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_10pxh"
-                            android:layout_width="wrap_content"
-                            android:singleLine="true"
-                            android:text="@{myProfileVM.myProfileModel.txtMyorders}"
-                            style="@style/txtMetropolissemibold16" tools:text="@string/lbl_my_orders2"/>
-                        <TextView android:ellipsize="end"
-                            android:id="@+id/txtAlreadyhaveTwelve"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_10pxh"
-                            android:layout_marginStart="@dimen/_1pxh"
-                            android:layout_marginTop="@dimen/_8pxv"
-                            android:layout_width="wrap_content"
-                            android:singleLine="true"
-                            android:text="@{myProfileVM.myProfileModel.txtAlreadyhaveTwelve}"
-                            style="@style/txtMetropolisregular11_1" tools:text="@string/msg_already_have_12"/>
-                    </LinearLayout>
-                    <ImageView android:id="@+id/imageArrowright"
-                        android:layout_height="@dimen/_12pxh"
-                        android:layout_marginBottom="@dimen/_12pxv"
-                        android:layout_marginTop="@dimen/_11pxv"
-                        android:layout_width="@dimen/_7pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_arrowright_gray_500"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowright_gray_500"/>
-                </LinearLayout>
-                <View android:background="@color/gray_500_5e"
-                    android:id="@+id/lineDivider"
-                    android:layout_height="@dimen/_1pxv"
-                    android:layout_marginTop="@dimen/_16pxv" android:layout_width="@dimen/_375pxh"/>
-                <LinearLayout android:gravity="start"
                     android:id="@+id/linearRowshippingaddres"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_14pxh"
                     android:layout_marginStart="@dimen/_14pxh"
-                    android:layout_marginTop="@dimen/_18pxv"
+                    android:layout_marginTop="50dp"
                     android:layout_width="match_parent" android:orientation="horizontal">
                     <LinearLayout android:gravity="start"
                         android:id="@+id/linearColumnshippingaddres"
@@ -138,20 +93,12 @@
                         <TextView android:ellipsize="end"
                             android:id="@+id/txtShippingaddres"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:layout_marginEnd="@dimen/_10pxh"
                             android:layout_width="wrap_content"
                             android:singleLine="true"
                             android:text="@{myProfileVM.myProfileModel.txtShippingaddres}"
                             style="@style/txtMetropolissemibold16" tools:text="@string/msg_shipping_addres3"/>
-                        <TextView android:ellipsize="end"
-                            android:id="@+id/txtDdressesCounter"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_10pxh"
-                            android:layout_marginTop="@dimen/_8pxv"
-                            android:layout_width="wrap_content"
-                            android:singleLine="true"
-                            android:text="@{myProfileVM.myProfileModel.txtDdressesCounter}"
-                            style="@style/txtMetropolisregular11_1" tools:text="@string/lbl_3_ddresses"/>
                     </LinearLayout>
                     <ImageView android:id="@+id/imageArrowrightOne"
                         android:layout_height="@dimen/_12pxh"
@@ -181,20 +128,12 @@
                         <TextView android:ellipsize="end"
                             android:id="@+id/txtPaymentmethods"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:layout_marginEnd="@dimen/_10pxh"
                             android:layout_width="wrap_content"
                             android:singleLine="true"
                             android:text="@{myProfileVM.myProfileModel.txtPaymentmethods}"
                             style="@style/txtMetropolissemibold16" tools:text="@string/lbl_payment_methods"/>
-                        <TextView android:ellipsize="end"
-                            android:id="@+id/txtLanguage"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_10pxh"
-                            android:layout_marginTop="@dimen/_6pxv"
-                            android:layout_width="wrap_content"
-                            android:singleLine="true"
-                            android:text="@{myProfileVM.myProfileModel.txtLanguage}"
-                            style="@style/txtMetropolisregular11_1" tools:text="@string/lbl_visa_34"/>
                     </LinearLayout>
                     <ImageView android:id="@+id/imageArrowrightTwo"
                         android:layout_height="@dimen/_12pxh"
@@ -268,20 +207,11 @@
                             android:id="@+id/txtMyreviews"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/_10pxh"
+                            android:layout_marginTop="8dp"
                             android:layout_width="wrap_content"
                             android:singleLine="true"
                             android:text="@{myProfileVM.myProfileModel.txtMyreviews}"
                             style="@style/txtMetropolissemibold16" tools:text="@string/lbl_my_reviews"/>
-                        <TextView android:ellipsize="end"
-                            android:id="@+id/txtReviewsfor4i"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_10pxh"
-                            android:layout_marginStart="@dimen/_1pxh"
-                            android:layout_marginTop="@dimen/_7pxv"
-                            android:layout_width="wrap_content"
-                            android:singleLine="true"
-                            android:text="@{myProfileVM.myProfileModel.txtReviewsfor4i}"
-                            style="@style/txtMetropolisregular11_1" tools:text="@string/msg_reviews_for_4_i"/>
                     </LinearLayout>
                     <ImageView android:id="@+id/imageArrowrightFour"
                         android:layout_height="@dimen/_12pxh"
@@ -313,6 +243,7 @@
                             android:id="@+id/txtSettings"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/_10pxh"
+
                             android:layout_width="wrap_content"
                             android:singleLine="true"
                             android:text="@{myProfileVM.myProfileModel.txtSettings}"
@@ -338,133 +269,5 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-        <FrameLayout android:id="@+id/frameBottombar"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent" style="@style/groupStylewhite_9">
-            <LinearLayout android:id="@+id/linearTabs"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_33pxv"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:layout_width="match_parent" android:orientation="horizontal">
-                <LinearLayout android:id="@+id/linearTab1Main"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_1pxv"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
-                    <ImageView android:id="@+id/imageHome"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_24pxh"
-                        android:layout_width="@dimen/_28pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_home_gray_500"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_home_gray_500"/>
-                    <TextView android:ellipsize="end"
-                        android:gravity="center_horizontal"
-                        android:id="@+id/txtLabel"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_2pxh"
-                        android:layout_marginStart="@dimen/_2pxh"
-                        android:layout_marginTop="@dimen/_4pxv"
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:text="@{myProfileVM.myProfileModel.txtLabel}"
-                        style="@style/txtMetropolisregular10" tools:text="@string/lbl_home"/>
-                </LinearLayout>
-                <LinearLayout android:id="@+id/linearTab2Shop"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
-                    <ImageView android:id="@+id/imageCart"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_24pxh"
-                        android:layout_width="@dimen/_24pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_cart"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_cart"/>
-                    <TextView android:ellipsize="end"
-                        android:gravity="center_horizontal"
-                        android:id="@+id/txtLabelOne"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_2pxh"
-                        android:layout_marginStart="@dimen/_2pxh"
-                        android:layout_marginTop="@dimen/_5pxv"
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:text="@{myProfileVM.myProfileModel.txtLabelOne}"
-                        style="@style/txtMetropolisregular10" tools:text="@string/lbl_shop"/>
-                </LinearLayout>
-                <LinearLayout android:id="@+id/linearTab3Bag"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_4pxv"
-                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
-                    <ImageView android:id="@+id/imageSearchOne"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_23pxh"
-                        android:layout_width="@dimen/_24pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_search_gray_500"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_search_gray_500"/>
-                    <TextView android:ellipsize="end"
-                        android:gravity="center_horizontal"
-                        android:id="@+id/txtLabelTwo"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_2pxh"
-                        android:layout_marginStart="@dimen/_2pxh"
-                        android:layout_marginTop="@dimen/_5pxv"
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:text="@{myProfileVM.myProfileModel.txtLabelTwo}"
-                        style="@style/txtMetropolisregular10" tools:text="@string/lbl_bag"/>
-                </LinearLayout>
-                <LinearLayout android:id="@+id/linearTab4Favorit"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_1pxv"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
-                    <ImageView android:id="@+id/imageFavorite"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_24pxh"
-                        android:layout_width="@dimen/_26pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_favorite"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_favorite"/>
-                    <TextView android:ellipsize="end"
-                        android:gravity="center_horizontal"
-                        android:id="@+id/txtLabelThree"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_2pxh"
-                        android:layout_marginStart="@dimen/_2pxh"
-                        android:layout_marginTop="@dimen/_4pxv"
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:text="@{myProfileVM.myProfileModel.txtLabelThree}"
-                        style="@style/txtMetropolisregular10" tools:text="@string/lbl_favorites"/>
-                </LinearLayout>
-                <LinearLayout android:id="@+id/linearTab5MyProf"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_1pxv"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
-                    <ImageView android:id="@+id/imageUser"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_24pxh"
-                        android:layout_width="@dimen/_20pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_user_red_700"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_user_red_700"/>
-                    <TextView android:ellipsize="end"
-                        android:gravity="center_horizontal"
-                        android:id="@+id/txtLabelFour"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_2pxh"
-                        android:layout_marginStart="@dimen/_2pxh"
-                        android:layout_marginTop="@dimen/_4pxv"
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:text="@{myProfileVM.myProfileModel.txtLabelFour}"
-                        style="@style/txtMetropolissemibold10" tools:text="@string/lbl_profile"/>
-                </LinearLayout>
-            </LinearLayout>
-        </FrameLayout>
     </LinearLayout>
 </layout>

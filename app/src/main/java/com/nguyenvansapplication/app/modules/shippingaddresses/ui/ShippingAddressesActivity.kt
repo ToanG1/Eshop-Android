@@ -36,7 +36,6 @@ class ShippingAddressesActivity :
   override fun onInitialized(): Unit {
     val sharedPreference =  this.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
     val userInfo = sharedPreference?.getString("USER_INFO", "")
-    val gson = Gson()
     val user = gson.fromJson(userInfo, UserResponse::class.java)
 
     viewModel.navArguments = intent.extras?.getBundle("bundle")
@@ -48,6 +47,21 @@ class ShippingAddressesActivity :
       intent.putExtra("address", gson.toJson(it))
       setResult(RESULT_OK, intent)
       finish()
+    }
+
+    listnameAdapter.OnItemUpdateClick = {
+      val destIntent = AddShippingAddressActivity.getIntent(this, null)
+      startActivity(destIntent.putExtra("address", gson.toJson(it)))
+    }
+
+    listnameAdapter.OnItemDeleteClick = {
+      addressApi.deleteAddress(user.uid!!, it.id!!).enqueue(object : Callback<Unit>{
+        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+          listnameAdapter.updateData(listnameAdapter.list.filter { item -> item.id != it.id})
+        }
+        override fun onFailure(call: Call<Unit>, t: Throwable) {
+        }
+      })
     }
 
     viewModel.listnameList.observe(this) {
@@ -76,14 +90,9 @@ class ShippingAddressesActivity :
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
-      val destIntent = MyBagCheckoutActivity.getIntent(this, null)
-      startActivity(destIntent)
       finish()
     }
 
-    binding.recyclerListname.setOnClickListener {
-      finish()
-    }
     binding.btnGrid.setOnClickListener {
       val destIntent = AddShippingAddressActivity.getIntent(this, null)
       startActivity(destIntent)

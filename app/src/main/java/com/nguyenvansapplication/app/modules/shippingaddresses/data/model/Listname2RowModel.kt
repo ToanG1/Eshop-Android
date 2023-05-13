@@ -6,11 +6,11 @@ import com.nguyenvansapplication.app.network.models.User.AddressDto
 import kotlin.String
 
 data class Listname2RowModel(
-  var txtName: String? = MyApp.getInstance().resources.getString(R.string.lbl_jane_doe)
+  var txtName: String? = ""
   ,
   var txtEdit: String? = MyApp.getInstance().resources.getString(R.string.lbl_edit)
   ,
-  var txtAddress: String? = MyApp.getInstance().resources.getString(R.string.msg_3_newbridge_cou)
+  var txtAddress: String? = ""
   ,
   var txtPhoneNumber: String? = ""
   ,

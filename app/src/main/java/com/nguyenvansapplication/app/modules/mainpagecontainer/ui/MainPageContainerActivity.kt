@@ -14,6 +14,7 @@ import com.nguyenvansapplication.app.modules.loginpage.ui.LoginPageActivity
 import com.nguyenvansapplication.app.modules.mainpage.ui.MainPageFragment
 import com.nguyenvansapplication.app.modules.mainpagecontainer.`data`.viewmodel.MainPageContainerVM
 import com.nguyenvansapplication.app.modules.mybagone.ui.MyBagOneFragment
+import com.nguyenvansapplication.app.modules.myprofile.ui.MyProfileActivity
 import com.nguyenvansapplication.app.modules.myprofilemyorders.ui.MyProfileMyOrdersFragment
 import kotlin.String
 import kotlin.Unit
@@ -83,12 +84,12 @@ class MainPageContainerActivity :
       this.loadFragment(
           R.id.fragmentContainer,
           destFragment,
-          bundle = destFragment.arguments, 
-          tag = MyProfileMyOrdersFragment.TAG, 
-          addToBackStack = true, 
-          add = false, 
-          enter = null, 
-          exit = null, 
+          bundle = destFragment.arguments,
+          tag = MyProfileMyOrdersFragment.TAG,
+          addToBackStack = true,
+          add = false,
+          enter = null,
+          exit = null,
           )
     }
     binding.linearTab1Main.setOnClickListener {

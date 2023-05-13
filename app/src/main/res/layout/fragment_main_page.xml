@@ -19,17 +19,35 @@
             <FrameLayout android:gravity="start"
                 android:id="@+id/frameBigBanner"
                 android:layout_height="@dimen/_492pxv" android:layout_width="match_parent">
-                <ImageView android:id="@+id/imageImage"
-                    android:layout_gravity="top|start"
-                    android:layout_height="@dimen/_362pxv"
-                    android:layout_marginBottom="@dimen/_10pxv"
-                    android:layout_width="match_parent"
-                    android:scaleType="fitXY"
-                    imageRes="@{@drawable/img_image_362x375}"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_image_362x375"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="70dp"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="15dp"
+                        android:background="@drawable/bg_corners"
+                        android:layout_gravity="end"
+                        android:text="Hello, Toandeptrai!"
+                        android:textColor="@color/black"
+                        android:textAlignment="textEnd"
+                        android:textSize="15sp"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnUser"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="350dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="7.5dp"
+                        android:paddingBottom="3dp"
+                        android:background="@drawable/custom_bg_rounded"
+                        android:drawableStart="@drawable/ic_user"/>
+
                 <FrameLayout android:id="@+id/frameStackfashionsale"
                     android:layout_gravity="start"
-                    android:layout_height="@dimen/_492pxv" android:layout_width="match_parent">
+                    android:layout_height="@dimen/_492pxv"
+                    android:layout_width="match_parent"
+                    android:translationZ="-1dp">
                     <ImageView android:id="@+id/imageImageOne"
                         android:layout_gravity="start"
                         android:layout_height="@dimen/_492pxh"

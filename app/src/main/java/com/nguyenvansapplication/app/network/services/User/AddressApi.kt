@@ -3,6 +3,7 @@ package com.nguyenvansapplication.app.network.services.User
 import com.nguyenvansapplication.app.network.models.User.ListAddressResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
@@ -18,6 +19,6 @@ interface AddressApi {
   @PUT("/api/user/user/address")
   fun updateAddress(@Body body: Map<String, String>) : Call<Unit>
 
-  @PUT("/api/user/user/address/{uid")
+  @DELETE("/api/user/user/address/{uid}")
   fun deleteAddress(@Path("uid") uid: String, @Query("id") id: Long) : Call<Unit>
 }
