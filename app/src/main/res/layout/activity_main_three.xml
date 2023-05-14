@@ -138,8 +138,8 @@
                         android:layout_height="@dimen/_24pxh"
                         android:layout_width="@dimen/_28pxh"
                         android:scaleType="fitXY"
-                        android:src="@drawable/img_home"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_home"/>
+                        android:src="@drawable/img_home_active"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_home_active"/>
                     <TextView android:ellipsize="end"
                         android:gravity="center_horizontal"
                         android:id="@+id/txtLabel"

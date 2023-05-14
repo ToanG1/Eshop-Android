@@ -83,7 +83,7 @@
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtHead"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.65"
+                        android:layout_weight="0.45"
                         android:layout_width="0dp"
                         android:singleLine="true"
                         style="@style/txtMetropolissemibold16" tools:text="@string/lbl_order_1947034"/>
@@ -91,12 +91,13 @@
                         android:id="@+id/txtDate"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_1pxv"
-                        android:layout_marginStart="@dimen/_136pxh"
+                        android:layout_marginStart="60dp"
                         android:layout_marginTop="@dimen/_1pxv"
-                        android:layout_weight="0.35"
+                        android:layout_weight="0.55"
                         android:layout_width="0dp"
                         android:lineSpacingExtra="@dimen/_1pxh"
                         android:singleLine="true"
+                        android:textAlignment="textEnd"
                         style="@style/txtMetropolisregular14" tools:text="@string/lbl_05_12_2019"/>
                 </LinearLayout>
                 <LinearLayout android:gravity="start"
@@ -474,8 +475,8 @@
                         android:layout_height="@dimen/_24pxh"
                         android:layout_width="@dimen/_20pxh"
                         android:scaleType="fitXY"
-                        android:src="@drawable/img_user_red_700"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_user_red_700"/>
+                        android:src="@drawable/img_user_active"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_user_active"/>
                     <TextView android:ellipsize="end"
                         android:gravity="center_horizontal"
                         android:id="@+id/txtLabelFour"

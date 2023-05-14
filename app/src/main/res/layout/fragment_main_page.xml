@@ -20,9 +20,10 @@
                 android:id="@+id/frameBigBanner"
                 android:layout_height="@dimen/_492pxv" android:layout_width="match_parent">
                     <TextView
+                        android:id="@+id/txtHiUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="18dp"
                         android:layout_marginRight="70dp"
                         android:paddingVertical="5dp"
                         android:paddingHorizontal="15dp"
@@ -84,7 +85,7 @@
                             android:paddingBottom="@dimen/_11pxv"
                             android:paddingEnd="@dimen/_30pxh"
                             android:paddingStart="@dimen/_30pxh"
-                            android:paddingTop="@dimen/_11pxv"
+                            android:paddingTop="3dp"
                             android:singleLine="true"
                             android:text="@string/lbl_check"
                             android:textAllCaps="false"
@@ -111,17 +112,6 @@
                         android:singleLine="true"
                         android:text="@{mainPageVM.mainPageModel.txtTitle}"
                         style="@style/txtMetropolisbold34" tools:text="@string/lbl_new"/>
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtSubtitle"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_2pxv"
-                        android:layout_marginStart="@dimen/_232pxh"
-                        android:layout_marginTop="@dimen/_20pxv"
-                        android:layout_weight="0.35"
-                        android:layout_width="0dp"
-                        android:singleLine="true"
-                        android:text="@{mainPageVM.mainPageModel.txtSubtitle}"
-                        style="@style/txtMetropolisregular11" tools:text="@string/lbl_view_all"/>
                 </LinearLayout>
                 <TextView android:ellipsize="end"
                     android:id="@+id/txtSubtitleOne"

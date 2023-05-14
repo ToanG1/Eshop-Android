@@ -281,8 +281,8 @@
                         android:layout_height="@dimen/_24pxh"
                         android:layout_width="@dimen/_26pxh"
                         android:scaleType="fitXY"
-                        android:src="@drawable/img_favorite_red_700"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_favorite_red_700"/>
+                        android:src="@drawable/img_favorite_active"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_favorite_active"/>
                     <TextView android:ellipsize="end"
                         android:gravity="center_horizontal"
                         android:id="@+id/txtLabelThree"

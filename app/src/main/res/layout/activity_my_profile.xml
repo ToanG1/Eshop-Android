@@ -47,8 +47,7 @@
                         android:layout_width="@dimen/_64pxh"
                         android:scaleType="centerCrop"
                         circular="@{true}"
-                        imageRes="@{@drawable/img_image2_2}"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_image2_2"/>
+                        tools:ignore="ContentDescription" />
                     <LinearLayout android:gravity="start"
                         android:id="@+id/linearColumnmatildabrown"
                         android:layout_height="wrap_content"
@@ -64,7 +63,6 @@
                             android:layout_width="match_parent"
                             android:lineSpacingExtra="@dimen/_1pxh"
                             android:singleLine="true"
-                            android:text="@{myProfileVM.myProfileModel.txtMatildaBrown}"
                             style="@style/txtMetropolissemibold18" tools:text="@string/lbl_matilda_brown"/>
                         <TextView android:ellipsize="end"
                             android:id="@+id/txtEmail"
@@ -74,7 +72,6 @@
                             android:layout_width="match_parent"
                             android:lineSpacingExtra="@dimen/_1pxh"
                             android:singleLine="true"
-                            android:text="@{myProfileVM.myProfileModel.txtEmail}"
                             style="@style/txtMetropolismedium14_2" tools:text="@string/msg_matildabrown_ma"/>
                     </LinearLayout>
                 </LinearLayout>
