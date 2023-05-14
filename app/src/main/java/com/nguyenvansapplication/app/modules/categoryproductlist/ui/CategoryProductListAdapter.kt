@@ -38,6 +38,10 @@ class CategoryProductListAdapter(
     list = newData
     notifyDataSetChanged()
   }
+  public fun insertData(newData: List<CategoryProductCardRowModel>) {
+    list = list + newData
+    notifyItemInserted(list.size - 1)
+  }
 
   inner class RowProductCardVH(
     view: View
@@ -47,6 +51,7 @@ class CategoryProductListAdapter(
       itemView.findViewById<View>(R.id.imageImageTwo).setOnClickListener {
         OnItemCLick?.invoke(list[adapterPosition])
       }
+
     }
   }
 }

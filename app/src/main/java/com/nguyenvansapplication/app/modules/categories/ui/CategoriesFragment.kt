@@ -56,16 +56,13 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>(R.layout.frag
       categoryApi.getCategory().enqueue(object : Callback<List<Category>> {
         override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
           if (response.isSuccessful){
-
             var data = response.body()?.map{ CategoriesRowModel(it)}
             data?.let { it1 -> categoriesAdapter.updateData(it1) }
           }
         }
         override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-          TODO("Not yet implemented")
         }
       })
-
     }
     binding.categoriesVM = viewModel
   }
