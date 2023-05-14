@@ -16,8 +16,8 @@ class MainPageAdapter(
   var list: List<MainPageRowModel>
 ) : RecyclerView.Adapter<MainPageAdapter.RowMainPageVH>() {
 
-  var OnItemClick:((MainPageRowModel) -> Unit)? = null
-
+  var OnItemClick: ((MainPageRowModel) -> Unit)? = null
+  var OnFollowItemClick: ((MainPageRowModel) -> Unit)? = null
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowMainPageVH {
     val view=LayoutInflater.from(parent.context).inflate(R.layout.row_main_page,parent,false)
     return RowMainPageVH(view)
@@ -50,6 +50,9 @@ class MainPageAdapter(
      itemView.findViewById<View>(R.id.imageImageOne).setOnClickListener {
        OnItemClick?.invoke(list[adapterPosition])
      }
+    itemView.findViewById<View>(R.id.btnClock).setOnClickListener {
+      OnFollowItemClick?.invoke(list[adapterPosition])
+    }
     }
   }
 }

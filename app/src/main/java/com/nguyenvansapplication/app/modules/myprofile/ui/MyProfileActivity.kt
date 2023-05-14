@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseActivity
 import com.nguyenvansapplication.app.databinding.ActivityMyProfileBinding
@@ -19,15 +21,25 @@ import com.nguyenvansapplication.app.modules.myprofilesettings.ui.MyProfileSetti
 import com.nguyenvansapplication.app.modules.paymentcardsone.ui.PaymentCardsOneActivity
 import com.nguyenvansapplication.app.modules.ratingandreviews.ui.RatingAndReviewsActivity
 import com.nguyenvansapplication.app.modules.shippingaddresses.ui.ShippingAddressesActivity
+import com.nguyenvansapplication.app.network.models.User.UserResponse
 import kotlin.String
 import kotlin.Unit
 
 class MyProfileActivity : BaseActivity<ActivityMyProfileBinding>(R.layout.activity_my_profile) {
   private val viewModel: MyProfileVM by viewModels<MyProfileVM>()
 
+  var gson = Gson()
   override fun onInitialized(): Unit {
+    val sharedPreference =  this.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+    val userInfo = sharedPreference?.getString("USER_INFO", "")
+    val user = gson.fromJson(userInfo, UserResponse::class.java)
+
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.myProfileVM = viewModel
+
+    Glide.with(this).load(user.avatar).into(findViewById(R.id.imageImage))
+    binding.txtMatildaBrown.text = user.name
+    binding.txtEmail.text = user.email
   }
 
   override fun setUpClicks(): Unit {

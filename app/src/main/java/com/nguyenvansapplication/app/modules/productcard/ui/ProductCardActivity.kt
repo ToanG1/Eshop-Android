@@ -174,14 +174,12 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
     }
     binding.btnClock.setOnClickListener {
       // Them vào FavoritesModulesActivity
-      println(user.id.toString())
       val body = mapOf(
         "id" to user.id.toString()!!,
         "productId" to prodId!!
       )
       productApi.followProduct(body).enqueue(object : Callback<Unit>{
         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-          println("followed "+prodId)
         }
 
         override fun onFailure(call: Call<Unit>, t: Throwable) {

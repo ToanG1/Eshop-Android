@@ -2,6 +2,8 @@ package com.nguyenvansapplication.app.modules.mainpagecontainer.ui
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.nguyenvansapplication.app.R
@@ -37,6 +39,8 @@ class MainPageContainerActivity :
         enter = null, 
         exit = null, 
         )
+    binding.imageCart.isActivated = true
+    binding.txtLabelOne.setTextColor(Color.parseColor("#DB3022"))
   }
 
   override fun setUpClicks(): Unit {
@@ -52,6 +56,9 @@ class MainPageContainerActivity :
           enter = null, 
           exit = null, 
           )
+      setUnActive()
+      binding.imageFavorite.isActivated = true
+      binding.txtLabelThree.setTextColor(Color.parseColor("#DB3022"))
     }
     binding.linearTab3Bag.setOnClickListener {
       val destFragment = MyBagOneFragment.getInstance(null)
@@ -65,6 +72,9 @@ class MainPageContainerActivity :
           enter = null, 
           exit = null, 
           )
+      setUnActive()
+      binding.imageSearch.isActivated = true
+      binding.txtLabelTwo.setTextColor(Color.parseColor("#DB3022"))
     }
     binding.linearTab2Shop.setOnClickListener {
       val destFragment = CategoriesFragment.getInstance(null)
@@ -78,6 +88,9 @@ class MainPageContainerActivity :
           enter = null, 
           exit = null, 
           )
+      setUnActive()
+      binding.imageCart.isActivated = true
+      binding.txtLabelOne.setTextColor(Color.parseColor("#DB3022"))
     }
     binding.linearTab5MyProf.setOnClickListener {
       val destFragment = MyProfileMyOrdersFragment.getInstance(null)
@@ -91,6 +104,9 @@ class MainPageContainerActivity :
           enter = null,
           exit = null,
           )
+      setUnActive()
+      binding.imageUser.isActivated = true
+      binding.txtLabelFour.setTextColor(Color.parseColor("#DB3022"))
     }
     binding.linearTab1Main.setOnClickListener {
       val destFragment = MainPageFragment.getInstance(null)
@@ -104,7 +120,24 @@ class MainPageContainerActivity :
           enter = null, 
           exit = null, 
           )
+      setUnActive()
+      binding.imageHome.isActivated = true
+      binding.txtLabel.setTextColor(Color.parseColor("#DB3022"))
     }
+  }
+
+  fun setUnActive(){
+    binding.imageHome.isActivated = false
+    binding.imageCart.isActivated = false
+    binding.imageSearch.isActivated = false
+    binding.imageFavorite.isActivated = false
+    binding.imageUser.isActivated = false
+
+    binding.txtLabel.setTextColor(Color.parseColor("#9B9B9B"))
+    binding.txtLabelOne.setTextColor(Color.parseColor("#9B9B9B"))
+    binding.txtLabelTwo.setTextColor(Color.parseColor("#9B9B9B"))
+    binding.txtLabelThree.setTextColor(Color.parseColor("#9B9B9B"))
+    binding.txtLabelFour.setTextColor(Color.parseColor("#9B9B9B"))
   }
 
   companion object {

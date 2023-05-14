@@ -24,14 +24,11 @@ class MyProfileSettingsActivity :
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
-      val destIntent = MyProfileActivity.getIntent(this, null)
-      startActivity(destIntent)
       finish()
     }
     binding.txtChange.setOnClickListener {
       val destIntent = MyProfileSettingsPasswordChangeBottomsheet.getIntent(this, null)
       startActivity(destIntent)
-      finish()
     }
     binding.txtDeliverystatus.setOnClickListener {
 
