@@ -58,7 +58,7 @@ class MyBagCheckoutActivity :
 
     shippingAdapter.OnItemClick = {
       shippingId = it?.id
-      binding.txtPriceOne.text = it.txtPrice.toString()
+      binding.txtPriceOne.text = it.txtPrice.toString() + "VND"
       binding.txtPriceTwo.text =
         (total + it.txtPrice!!).toString() + "VND"
     }

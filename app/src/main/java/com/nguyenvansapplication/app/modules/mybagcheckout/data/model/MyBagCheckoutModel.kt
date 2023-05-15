@@ -9,19 +9,19 @@ data class MyBagCheckoutModel(
   ,
   var txtHead: String? = MyApp.getInstance().resources.getString(R.string.msg_shipping_addres)
   ,
-  var txtName: String? = MyApp.getInstance().resources.getString(R.string.lbl_jane_doe)
+  var txtName: String? = ""
   ,
   var txtChange: String? = MyApp.getInstance().resources.getString(R.string.lbl_change)
   ,
-  var txtPhoneNumber: String? = "0123456789"
+  var txtPhoneNumber: String? = ""
   ,
-  var txtAddress: String? = MyApp.getInstance().resources.getString(R.string.msg_3_newbridge_cou)
+  var txtAddress: String? = ""
   ,
   var txtHeadOne: String? = MyApp.getInstance().resources.getString(R.string.lbl_payment)
   ,
   var txtChangeOne: String? = MyApp.getInstance().resources.getString(R.string.lbl_change)
   ,
-  var txtCardnumber: String? = MyApp.getInstance().resources.getString(R.string.msg)
+  var txtCardnumber: String? = "COD"
   ,
   var txtHeadTwo: String? = MyApp.getInstance().resources.getString(R.string.lbl_delivery_method)
   ,

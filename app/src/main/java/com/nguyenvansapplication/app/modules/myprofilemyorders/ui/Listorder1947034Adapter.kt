@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowListorder1947034Binding
 import com.nguyenvansapplication.app.modules.myprofilemyorders.`data`.model.Listorder1947034RowModel
+import com.nguyenvansapplication.app.modules.productcard.data.model.CategoryProductCardRowModel
 import kotlin.Int
 import kotlin.collections.List
 
@@ -31,6 +32,11 @@ class Listorder1947034Adapter(
   public fun updateData(newData: List<Listorder1947034RowModel>) {
     list = newData
     notifyDataSetChanged()
+  }
+
+  public fun insertData(newData: List<Listorder1947034RowModel>) {
+    list = list + newData
+    notifyItemInserted(list.size - 1)
   }
 
   inner class RowListorder1947034VH(

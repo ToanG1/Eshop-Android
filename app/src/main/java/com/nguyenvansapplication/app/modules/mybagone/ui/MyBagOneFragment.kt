@@ -57,7 +57,7 @@ class MyBagOneFragment : BaseFragment<FragmentMyBagOneBinding>(R.layout.fragment
       chosenList = it.map { it.id.toString() }
       if (total != null) {
         it.forEach {
-          total = total!! + it.txtPrice?.toInt()!!
+          total = total!! + (it.txtPrice?.toInt()!! * it.txtOne?.toInt()!!)
         }
       }
       binding.txtPriceThree.text = total.toString()

@@ -60,72 +60,52 @@
                 android:layout_marginBottom="@dimen/_20pxv"
                 android:layout_width="match_parent" android:orientation="vertical">
                 <LinearLayout android:id="@+id/linearColumnclock"
-                    android:layout_height="wrap_content"
+                    android:layout_height="700dp"
                     android:layout_width="match_parent" android:orientation="vertical">
-                    <ViewFlipper
-                        android:id="@+id/viewFlipper"
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:nestedScrollingEnabled="false"
+                        android:id="@+id/recylerProdImg"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp">
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
-                    </ViewFlipper>
-                    <LinearLayout android:id="@+id/linearRowclock"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_16pxh"
-                        android:layout_marginStart="@dimen/_16pxh"
-                        android:layout_marginTop="@dimen/_12pxv"
-                        android:layout_width="match_parent" android:orientation="horizontal">
-                        <EditText
-                            android:background="@drawable/rectangle_bg_white_a700_border_deep_orange_a700_radius_8"
-                            android:ellipsize="end"
-                            android:hint="@string/lbl_size2"
-                            android:id="@+id/etDropdownUnsele"
-                            android:inputType="text"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.44"
-                            android:layout_width="0dp"
-                            android:lineSpacingExtra="@dimen/_1pxh"
-                            android:paddingBottom="@dimen/_13pxv"
-                            android:paddingEnd="@dimen/_30pxh"
-                            android:paddingStart="@dimen/_12pxh"
-                            android:paddingTop="@dimen/_12pxv"
-                            android:singleLine="true"
-                            android:text="@={productCardVM.productCardModel.etDropdownUnseleValue}"
-                            android:textColorHint="@color/gray_900"
-                            style="@style/etSolidRoundedOutline_1" tools:ignore="Autofill"/>
-                        <EditText
-                            android:background="@drawable/rectangle_bg_white_a700_border_gray_500_radius_8"
-                            android:ellipsize="end"
-                            android:hint="@string/lbl_black"
-                            android:id="@+id/etDropdownSelect"
-                            android:inputType="text"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_16pxh"
-                            android:layout_weight="0.44"
-                            android:layout_width="0dp"
-                            android:lineSpacingExtra="@dimen/_1pxh"
-                            android:paddingBottom="@dimen/_13pxv"
-                            android:paddingEnd="@dimen/_30pxh"
-                            android:paddingStart="@dimen/_12pxh"
-                            android:paddingTop="@dimen/_12pxv"
-                            android:singleLine="true"
-                            android:text="@={productCardVM.productCardModel.etDropdownSelectValue}"
-                            android:textColorHint="@color/gray_900"
-                            style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-                        <ImageButton
-                            android:background="@drawable/rectangle_bg_white_a700_radius_18"
-                            android:id="@+id/btnClock"
-                            android:layout_height="@dimen/_36pxh"
-                            android:layout_marginBottom="@dimen/_2pxv"
-                            android:layout_marginStart="@dimen/_16pxh"
-                            android:layout_marginTop="@dimen/_2pxv"
-                            android:layout_width="@dimen/_36pxh"
-                            android:paddingHorizontal="@dimen/_11pxh"
-                            android:paddingVertical="@dimen/_11pxv"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/img_clock" tools:ignore="ContentDescription"/>
-                    </LinearLayout>
+                        android:layout_height="350dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/row_pro_img"/>
+<!--                    <ViewFlipper-->
+<!--                        android:id="@+id/viewFlipper"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="350dp">-->
+<!--                       -->
+<!--                    </ViewFlipper>-->
+<!--                    <ScrollView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="350dp">-->
+<!--                        <LinearLayout-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="350dp">-->
+<!--                            <ImageView-->
+<!--                                android:id="@+id/myImgProd1"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="350dp"/>-->
+<!--                            <ImageView-->
+<!--                                android:id="@+id/myImgProd2"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="350dp"/>-->
+<!--                            <ImageView-->
+<!--                                android:id="@+id/myImgProd3"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="350dp"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </ScrollView>-->
+                    <ImageButton
+                        android:background="@drawable/rectangle_bg_white_a700_radius_18"
+                        android:id="@+id/btnClock"
+                        android:layout_height="@dimen/_36pxh"
+                        android:layout_width="@dimen/_36pxh"
+                        android:layout_marginStart="360dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/custom_img_clock" tools:ignore="ContentDescription"/>
                     <LinearLayout android:id="@+id/linearRowhm"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_16pxh"
@@ -264,7 +244,7 @@
                                 android:gravity="center"
                                 android:id="@+id/btnAddToCart"
                                 android:layout_height="match_parent"
-                                android:layout_marginBottom="@dimen/_44pxv"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginEnd="@dimen/_16pxh"
                                 android:layout_marginStart="@dimen/_16pxh"
                                 android:layout_marginTop="@dimen/_20pxv"
@@ -287,34 +267,6 @@
                     android:layout_height="@dimen/_1pxv"
                     android:layout_marginStart="@dimen/_1pxh"
                     android:layout_marginTop="@dimen/_13pxv" android:layout_width="@dimen/_374pxh"/>
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtShippinginfo"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_16pxv"
-                    android:layout_width="wrap_content"
-                    android:singleLine="true"
-                    android:text="@{productCardVM.productCardModel.txtShippinginfo}"
-                    style="@style/txtMetropolisregular16" tools:text="@string/lbl_shipping_info"/>
-                <View android:background="@color/gray_500_71"
-                    android:id="@+id/lineLineThree"
-                    android:layout_height="@dimen/_1pxv"
-                    android:layout_marginTop="@dimen/_16pxv" android:layout_width="@dimen/_375pxh"/>
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtSupport"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_15pxv"
-                    android:layout_width="wrap_content"
-                    android:singleLine="true"
-                    android:text="@{productCardVM.productCardModel.txtSupport}"
-                    style="@style/txtMetropolisregular16" tools:text="@string/lbl_support"/>
-                <View android:background="@color/gray_500_71"
-                    android:id="@+id/lineLineFour"
-                    android:layout_height="@dimen/_1pxv"
-                    android:layout_marginTop="@dimen/_16pxv" android:layout_width="@dimen/_375pxh"/>
                 <LinearLayout android:gravity="start"
                     android:id="@+id/linearColumnyoucanalsoli"
                     android:layout_height="wrap_content"

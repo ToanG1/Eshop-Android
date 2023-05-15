@@ -3,6 +3,7 @@ package com.nguyenvansapplication.app.modules.myprofile.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
@@ -22,6 +23,7 @@ import com.nguyenvansapplication.app.modules.paymentcardsone.ui.PaymentCardsOneA
 import com.nguyenvansapplication.app.modules.ratingandreviews.ui.RatingAndReviewsActivity
 import com.nguyenvansapplication.app.modules.shippingaddresses.ui.ShippingAddressesActivity
 import com.nguyenvansapplication.app.network.models.User.UserResponse
+import com.squareup.picasso.Picasso
 import kotlin.String
 import kotlin.Unit
 
@@ -37,7 +39,8 @@ class MyProfileActivity : BaseActivity<ActivityMyProfileBinding>(R.layout.activi
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.myProfileVM = viewModel
 
-    Glide.with(this).load(user.avatar).into(findViewById(R.id.imageImage))
+//    Glide.with(this).load(user.avatar).into(findViewById(R.id.imageImage))
+    Picasso.get().load(user.avatar).fit().into(findViewById<ImageView>(R.id.imageImage))
     binding.txtMatildaBrown.text = user.name
     binding.txtEmail.text = user.email
   }

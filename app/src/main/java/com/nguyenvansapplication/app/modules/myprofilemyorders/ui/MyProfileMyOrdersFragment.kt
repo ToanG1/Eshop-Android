@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.appcomponents.base.BaseFragment
@@ -13,8 +14,10 @@ import com.nguyenvansapplication.app.modules.myprofile.ui.MyProfileActivity
 import com.nguyenvansapplication.app.modules.myprofilemyorders.`data`.model.Listorder1947034RowModel
 import com.nguyenvansapplication.app.modules.myprofilemyorders.`data`.viewmodel.MyProfileMyOrdersVM
 import com.nguyenvansapplication.app.modules.myprofilemyordersorderdetails.ui.MyProfileMyOrdersOrderDetailsActivity
+import com.nguyenvansapplication.app.modules.productcard.data.model.CategoryProductCardRowModel
 import com.nguyenvansapplication.app.network.RetrofitHelper
 import com.nguyenvansapplication.app.network.models.Order.OrderResponse
+import com.nguyenvansapplication.app.network.models.Product.ProductResponse
 import com.nguyenvansapplication.app.network.models.User.UserResponse
 import com.nguyenvansapplication.app.network.services.Order.OrderApi
 import retrofit2.Call
@@ -34,6 +37,10 @@ class MyProfileMyOrdersFragment :
 
   val gson = Gson()
 
+  var currentState = 0
+  var currentPage = -1
+  var limit = -1
+
   override fun onInitialized(): Unit {
     viewModel.navArguments = arguments
     listorder1947034Adapter = Listorder1947034Adapter(viewModel.listorder1947034List.value?:mutableListOf())
@@ -45,7 +52,40 @@ class MyProfileMyOrdersFragment :
     val sharedPreference =  this.activity?.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
     val userInfo = sharedPreference?.getString("USER_INFO", "")
     val user = gson.fromJson(userInfo, UserResponse::class.java)
+
+    binding.recyclerListorder.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+      override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+        super.onScrollStateChanged(recyclerView, newState)
+        if (!recyclerView.canScrollVertically(1) && currentPage.plus(1) <= limit) {
+          println(currentState.toString() + " "+ currentPage.plus(1).toString() + " "+ limit.toString())
+          val body = mapOf(
+            "uid" to user.uid,
+            "orderStatus" to currentState.toString(),
+            "currentPage" to currentPage.plus(1).toString(),
+            "size" to "10"
+          )
+          orderApi.findOrder(body as Map<String, String>).enqueue(object : Callback<OrderResponse> {
+            override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
+              if (response.isSuccessful) {
+                val data = response.body()?.orderDtoList?.map { Listorder1947034RowModel(it) }
+                currentPage = response.body()?.currentPage!!
+                limit = response.body()?.totalPage!!
+                if (data != null) {
+                  if (data.isNotEmpty()) {
+                    listorder1947034Adapter.insertData(data)
+                  }
+                }
+              }
+            }
+            override fun onFailure(call: Call<OrderResponse>, t: Throwable) {
+            }
+          })
+        }
+      }
+    })
+
     viewModel.listorder1947034List.observe(requireActivity()) {
+      currentState = 0
       val body = mapOf(
         "uid" to user.uid,
         "orderStatus" to "0",
@@ -56,6 +96,8 @@ class MyProfileMyOrdersFragment :
         override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
           if (response.isSuccessful){
             val data = response.body()?.orderDtoList?.map{ Listorder1947034RowModel(it)}
+            currentPage = response.body()?.currentPage!!
+            limit = response.body()?.totalPage!!
             data?.let { it1 -> listorder1947034Adapter.updateData(it1) }
           }
         }
@@ -78,7 +120,7 @@ class MyProfileMyOrdersFragment :
     binding.txtPending.setOnClickListener {
       this.setUnActived()
       it.isActivated = true
-
+      currentState = 0
       val body = mapOf(
         "uid" to user.uid,
         "orderStatus" to "0",
@@ -89,10 +131,11 @@ class MyProfileMyOrdersFragment :
         override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
           if (response.isSuccessful){
             val data = response.body()?.orderDtoList?.map{ Listorder1947034RowModel(it)}
+            currentPage = response.body()?.currentPage!!
+            limit = response.body()?.totalPage!!
             data?.let { it1 -> listorder1947034Adapter.updateData(it1) }
           }
         }
-
         override fun onFailure(call: Call<OrderResponse>, t: Throwable) {
         }
       })
@@ -100,7 +143,7 @@ class MyProfileMyOrdersFragment :
     binding.txtDelivering.setOnClickListener {
       this.setUnActived()
       it.isActivated = true
-
+      currentState = 1
       val body = mapOf(
         "uid" to user.uid,
         "orderStatus" to "1",
@@ -111,10 +154,11 @@ class MyProfileMyOrdersFragment :
         override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
           if (response.isSuccessful){
             val data = response.body()?.orderDtoList?.map{ Listorder1947034RowModel(it)}
+            currentPage = response.body()?.currentPage!!
+            limit = response.body()?.totalPage!!
             data?.let { it1 -> listorder1947034Adapter.updateData(it1) }
           }
         }
-
         override fun onFailure(call: Call<OrderResponse>, t: Throwable) {
         }
       })
@@ -122,7 +166,7 @@ class MyProfileMyOrdersFragment :
     binding.txtDelivered.setOnClickListener {
       this.setUnActived()
       it.isActivated = true
-
+      currentState = 2
       val body = mapOf(
         "uid" to user.uid,
         "orderStatus" to "2",
@@ -133,10 +177,11 @@ class MyProfileMyOrdersFragment :
         override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
           if (response.isSuccessful){
             val data = response.body()?.orderDtoList?.map{ Listorder1947034RowModel(it)}
+            currentPage = response.body()?.currentPage!!
+            limit = response.body()?.totalPage!!
             data?.let { it1 -> listorder1947034Adapter.updateData(it1) }
           }
         }
-
         override fun onFailure(call: Call<OrderResponse>, t: Throwable) {
         }
       })
@@ -144,7 +189,7 @@ class MyProfileMyOrdersFragment :
     binding.txtCanceled.setOnClickListener {
       this.setUnActived()
       it.isActivated = true
-
+      currentState = 3
       val body = mapOf(
         "uid" to user.uid,
         "orderStatus" to "3",
@@ -155,10 +200,11 @@ class MyProfileMyOrdersFragment :
         override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
           if (response.isSuccessful){
             val data = response.body()?.orderDtoList?.map{ Listorder1947034RowModel(it)}
+            currentPage = response.body()?.currentPage!!
+            limit = response.body()?.totalPage!!
             data?.let { it1 -> listorder1947034Adapter.updateData(it1) }
           }
         }
-
         override fun onFailure(call: Call<OrderResponse>, t: Throwable) {
         }
       })
