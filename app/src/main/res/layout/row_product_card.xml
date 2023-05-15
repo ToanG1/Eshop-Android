@@ -20,7 +20,6 @@
                 <ImageView
                     android:id="@+id/imageImageTwo"
                     cornerRadius="@{@dimen/_8pxh}"
-                    imageRes="@{@drawable/img_image2_1}"
                     android:layout_width="@dimen/_148pxh"
                     android:layout_height="@dimen/_184pxh"
                     android:layout_gravity="start"
@@ -112,7 +111,7 @@
                 android:paddingHorizontal="@dimen/_11pxh"
                 android:paddingVertical="@dimen/_11pxv"
                 android:scaleType="fitCenter"
-                android:src="@drawable/img_clock" tools:ignore="ContentDescription"/>
+                android:src="@drawable/custom_img_clock" tools:ignore="ContentDescription"/>
         </FrameLayout>
         <TextView android:ellipsize="end" android:id="@+id/txtBrandname"
             android:layout_height="wrap_content"
@@ -140,30 +139,12 @@
             android:layout_marginStart="@dimen/_3pxh"
             android:layout_marginTop="@dimen/_4pxv"
             android:layout_width="wrap_content" android:orientation="horizontal">
-            <FrameLayout android:id="@+id/frameOldprice"
-                android:layout_height="@dimen/_14pxv" android:layout_width="@dimen/_23pxh">
-                <View android:background="@color/gray_500"
-                    android:id="@+id/viewRectangleOne"
-                    android:layout_gravity="bottom|start"
-                    android:layout_height="@dimen/_1pxv"
-                    android:layout_marginBottom="@dimen/_6pxv"
-                    android:layout_marginTop="@dimen/_10pxv" android:layout_width="@dimen/_23pxh"/>
-                <TextView android:ellipsize="end"
-                    android:gravity="top|start"
-                    android:id="@+id/txtPriceOne1"
-                    android:layout_gravity="start"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_1pxh"
-                    android:singleLine="true"
-                    android:text="@{productCardRowModel.txtPriceOne1}"
-                    style="@style/txtMetropolismedium14_2" tools:text="@string/lbl_15"/>
-            </FrameLayout>
+
             <TextView android:ellipsize="end"
                 android:id="@+id/txtPriceOne2"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4pxh"
-                android:layout_weight="0.5" android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:lineSpacingExtra="@dimen/_1pxh"
                 android:singleLine="true"
                 android:text="@{productCardRowModel.txtPriceOne2}"

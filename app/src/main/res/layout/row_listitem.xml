@@ -9,20 +9,12 @@
         android:orientation="horizontal" style="@style/groupStylewhite_A700cornerRadius">
         <FrameLayout android:id="@+id/framePhoto"
             android:layout_height="@dimen/_104pxv" android:layout_width="@dimen/_104pxh">
-            <ImageView android:id="@+id/imageImage"
-                android:layout_gravity="start"
-                android:layout_height="@dimen/_104pxh"
-                android:layout_width="@dimen/_104pxh"
-                android:scaleType="fitXY" cornerRadius="@{@dimen/_8pxh}"
-                imageRes="@{@drawable/img_image_104x104}"
-                tools:ignore="ContentDescription" tools:src="@drawable/img_image_104x104"/>
             <ImageView android:id="@+id/imageImageOne"
                 android:layout_gravity="start"
                 android:layout_height="@dimen/_104pxh"
                 android:layout_width="@dimen/_104pxh"
                 android:scaleType="fitXY" cornerRadius="@{@dimen/_8pxh}"
-                imageRes="@{@drawable/img_image_6}"
-                tools:ignore="ContentDescription" tools:src="@drawable/img_image_6"/>
+                tools:ignore="ContentDescription"/>
         </FrameLayout>
         <LinearLayout android:gravity="start"
             android:id="@+id/linearColumnitem"

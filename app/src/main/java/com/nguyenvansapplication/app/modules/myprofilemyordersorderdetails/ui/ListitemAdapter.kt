@@ -3,10 +3,12 @@ package com.nguyenvansapplication.app.modules.myprofilemyordersorderdetails.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowListitemBinding
 import com.nguyenvansapplication.app.modules.myprofilemyordersorderdetails.`data`.model.ListitemRowModel
+import com.squareup.picasso.Picasso
 import kotlin.Int
 import kotlin.collections.List
 
@@ -22,6 +24,10 @@ class ListitemAdapter(
 
   override fun onBindViewHolder(holder: RowListitemVH, position: Int) {
     val listitemRowModel = list[position]
+    Picasso.get()
+      .load(listitemRowModel.avatar)
+      .fit()
+      .into(holder.itemView.findViewById<ImageView>(R.id.imageImageOne))
     holder.binding.listitemRowModel = listitemRowModel
   }
 

@@ -19,11 +19,17 @@ data class ListbrandnameRowModel(
   var txtNumber: String? = MyApp.getInstance().resources.getString(R.string.lbl_102)
   ,
   var id: String? = null
+  ,
+  var imgSrc: String? = ""
+  ,
+  var rating: Int? = 0
 ){
   constructor(item: ProductDto) : this(){
     this.id = item.id
     this.txtBrandname = item.category?.name.toString()
     this.txtItem = item.name.toString()
     this.txtPrice = item.price.toString()
+    this.imgSrc = item.listImages?.get(0).toString()
+    this.rating = item.rating
   }
 }

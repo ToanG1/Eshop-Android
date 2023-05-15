@@ -3,10 +3,12 @@ package com.nguyenvansapplication.app.modules.favoriteslists.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowListbrandnameBinding
 import com.nguyenvansapplication.app.modules.favoriteslists.`data`.model.ListbrandnameRowModel
+import com.squareup.picasso.Picasso
 import kotlin.Int
 import kotlin.collections.List
 
@@ -22,6 +24,10 @@ class ListbrandnameAdapter(
 
   override fun onBindViewHolder(holder: RowListbrandnameVH, position: Int) {
      val listbrandnameRowModel = list[position]
+    Picasso.get()
+      .load(listbrandnameRowModel.imgSrc)
+      .fit()
+      .into(holder.itemView.findViewById<ImageView>(R.id.imageImageOne))
     holder.binding.listbrandnameRowModel = listbrandnameRowModel
   }
 

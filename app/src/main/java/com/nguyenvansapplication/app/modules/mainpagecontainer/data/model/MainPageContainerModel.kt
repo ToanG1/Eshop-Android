@@ -28,6 +28,6 @@ data class MainPageContainerModel(
   /**
    * TODO Replace with dynamic value
    */
-  var txtLabelFour: String? = MyApp.getInstance().resources.getString(R.string.lbl_profile)
+  var txtLabelFour: String? = "Order"
 
 )

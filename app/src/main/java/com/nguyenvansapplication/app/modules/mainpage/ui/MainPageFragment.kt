@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.google.gson.Gson
 import com.nguyenvansapplication.app.R
@@ -54,9 +55,11 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(R.layout.fragment
       )
       productApi.followProduct(body).enqueue(object : Callback<Unit>{
         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+          Toast.makeText(requireContext(), "Add to Favorites successfully", Toast.LENGTH_LONG).show()
         }
 
         override fun onFailure(call: Call<Unit>, t: Throwable) {
+          Toast.makeText(requireContext(), "Error !, contact support team for help", Toast.LENGTH_LONG).show()
         }
       })
     }

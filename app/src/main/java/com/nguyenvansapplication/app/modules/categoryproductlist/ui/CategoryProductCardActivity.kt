@@ -36,7 +36,6 @@ class CategoryProductListActivity : BaseActivity<ActivityCategoryProductBinding>
     binding.recyclerCategoryProductCard.addOnScrollListener(object : RecyclerView.OnScrollListener() {
       override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
         super.onScrollStateChanged(recyclerView, newState)
-        println(currentPage.toString() + " " + limit )
         if (!recyclerView.canScrollVertically(1) && currentPage.plus(1) <= limit) {
           val body: Map<String, String>
           if (cateId != null) {

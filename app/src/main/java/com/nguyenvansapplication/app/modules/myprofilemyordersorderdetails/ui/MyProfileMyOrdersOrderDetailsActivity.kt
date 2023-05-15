@@ -58,10 +58,6 @@ class MyProfileMyOrdersOrderDetailsActivity :
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
-
-        val destIntent = MyProfileMyOrdersFragment.getIntent(this, null)
-        startActivity(destIntent)
-
       finish()
     }
     binding.imageArrowleftOne.setOnClickListener {

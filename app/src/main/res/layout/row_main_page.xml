@@ -117,7 +117,7 @@
                 android:paddingHorizontal="@dimen/_11pxh"
                 android:paddingVertical="@dimen/_11pxv"
                 android:scaleType="fitCenter"
-                android:src="@drawable/img_clock" tools:ignore="ContentDescription"/>
+                android:src="@drawable/custom_img_clock" tools:ignore="ContentDescription"/>
         </FrameLayout>
         <TextView android:ellipsize="end" android:id="@+id/txtBrandname"
             android:layout_height="wrap_content"

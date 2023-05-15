@@ -3,12 +3,14 @@ package com.nguyenvansapplication.app.modules.mainpage.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowMainPageBinding
 import com.nguyenvansapplication.app.modules.mainpage.`data`.model.MainPageRowModel
 import com.nguyenvansapplication.app.modules.productcard.ui.ProductCardActivity
+import com.squareup.picasso.Picasso
 import kotlin.Int
 import kotlin.collections.List
 
@@ -26,7 +28,12 @@ class MainPageAdapter(
   override fun onBindViewHolder(holder: RowMainPageVH, position: Int) {
     val mainPageRowModel = list[position]
     holder.binding.mainPageRowModel = mainPageRowModel
-    Glide.with(holder.itemView.getContext()).load(mainPageRowModel.imgSrc).into(holder.itemView.findViewById(R.id.imageImageOne))
+//    Glide.with(holder.itemView.getContext()).load(mainPageRowModel.imgSrc)
+//      .into(holder.itemView.findViewById(R.id.imageImageOne))
+    Picasso.get()
+      .load(mainPageRowModel.imgSrc)
+      .fit()
+      .into(holder.itemView.findViewById<ImageView>(R.id.imageImageOne))
   }
 
   override fun getItemCount(): Int
@@ -51,6 +58,7 @@ class MainPageAdapter(
        OnItemClick?.invoke(list[adapterPosition])
      }
     itemView.findViewById<View>(R.id.btnClock).setOnClickListener {
+      it.isActivated = !it.isActivated
       OnFollowItemClick?.invoke(list[adapterPosition])
     }
     }

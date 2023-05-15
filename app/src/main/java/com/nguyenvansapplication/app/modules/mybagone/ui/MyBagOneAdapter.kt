@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nguyenvansapplication.app.R
 import com.nguyenvansapplication.app.databinding.RowMyBagOneBinding
 import com.nguyenvansapplication.app.modules.mybagone.`data`.model.MyBagOneRowModel
+import com.squareup.picasso.Picasso
 import kotlin.Int
 import kotlin.collections.List
 
@@ -25,7 +27,11 @@ class MyBagOneAdapter(
 
   override fun onBindViewHolder(holder: RowMyBagOneVH, position: Int) {
     val myBagOneRowModel = list[position]
-    Glide.with(holder.itemView.context).load(myBagOneRowModel.imgSrc).into(holder.binding.imageImageOne)
+//    Glide.with(holder.itemView.context).load(myBagOneRowModel.imgSrc).into(holder.binding.imageImageOne)
+    Picasso.get()
+      .load(myBagOneRowModel.imgSrc)
+      .fit()
+      .into(holder.itemView.findViewById<ImageView>(R.id.imageImageOne))
     holder.binding.myBagOneRowModel = myBagOneRowModel
   }
 

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
@@ -23,6 +24,7 @@ import com.nguyenvansapplication.app.network.models.User.StoreResponse
 import com.nguyenvansapplication.app.network.models.User.UserResponse
 import com.nguyenvansapplication.app.network.services.Product.ProductApi
 import com.nguyenvansapplication.app.network.services.User.StoreApi
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +33,7 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
   private val viewModel: ProductCardVM by viewModels<ProductCardVM>()
   private val productApi = RetrofitHelper.getInstance().create(ProductApi::class.java)
   private val storeApi = RetrofitHelper.getInstance().create(StoreApi::class.java)
-
+  var imgAdapter = ProductImgAdapter(mutableListOf())
   override fun onInitialized(): Unit {
     val prodId = intent.getStringExtra("id")
 
@@ -48,12 +50,35 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     val productCardAdapter = ProductCardAdapter(viewModel.productCardList.value?:mutableListOf())
     binding.recyclerProductCard.adapter = productCardAdapter
+    binding.recylerProdImg.adapter = imgAdapter
+
+    val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+    val userInfo = sharedPreference.getString("USER_INFO", "")
+    val gson = Gson()
+    val user = gson.fromJson(userInfo, UserResponse::class.java)
 
     productCardAdapter.OnItemCLick = {
       val destIntent = this.applicationContext?.let { it1 -> ProductCardActivity.getIntent(it1, null) }
       if (destIntent != null) {
         startActivity(destIntent.putExtra("id", it.id))
       }
+    }
+
+    productCardAdapter.OnFollowClick = {
+      // Them vào Card
+      val body = mapOf(
+        "id" to user.id.toString()!!,
+        "productId" to prodId!!
+      )
+      productApi.followProduct(body).enqueue(object : Callback<Unit>{
+        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+          Toast.makeText(this@ProductCardActivity, "Follow product Successfully", Toast.LENGTH_LONG).show()
+        }
+
+        override fun onFailure(call: Call<Unit>, t: Throwable) {
+          Toast.makeText(this@ProductCardActivity, "ERROR!, contact to support team for help", Toast.LENGTH_LONG).show()
+        }
+      })
     }
 
     viewModel.productCardList.observe(this) {
@@ -86,37 +111,36 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
             var data = response.body()?.productDtoList?.get(0)?.let { ProductCardModel(it) }
             if (data != null) {
               viewModel.productCardModel.value = data
-              loadSliderImages(response.body()?.productDtoList?.get(0)?.listImages!!)
+              imgAdapter.updateData(response.body()?.productDtoList?.get(0)?.listImages!!)
             }
           }
         }
 
         override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
-          TODO("Not yet implemented")
         }
       })
     }
   }
 
   fun loadSliderImages(listImages: List<String>){
-    var viewFlipper = findViewById<ViewFlipper>(R.id.viewFlipper)
-    listImages.forEach {
-      val imageView = ImageView(this)
-      Glide.with(this).load(it).into(imageView)
-      imageView.scaleType = ImageView.ScaleType.FIT_XY
-      viewFlipper.addView(imageView)
-    }
-    viewFlipper.setFlipInterval(3000)
-    viewFlipper.setAutoStart(true)
 
-    val slide_in = AnimationUtils.loadAnimation(
-      applicationContext, R.anim.slide_in_right
-    )
-    val slide_out = AnimationUtils.loadAnimation(
-      applicationContext, R.anim.slide_out_right
-    )
-    viewFlipper.inAnimation = slide_in
-    viewFlipper.outAnimation = slide_out
+//    Picasso.get().load(listImages.get(0)).fit().into(findViewById<ImageView>(R.id.myImgProd1))
+//    Picasso.get().load(listImages.get(1)).fit().into(findViewById<ImageView>(R.id.myImgProd2))
+//    Picasso.get().load(listImages.get(2)).fit().into(findViewById<ImageView>(R.id.myImgProd3))
+//
+//    var viewFlipper = findViewById<ViewFlipper>(R.id.viewFlipper)
+//
+//    viewFlipper.flipInterval = 3000
+//    viewFlipper.isAutoStart = true
+//
+//    val slide_in = AnimationUtils.loadAnimation(
+//      applicationContext, R.anim.slide_in_right
+//    )
+//    val slide_out = AnimationUtils.loadAnimation(
+//      applicationContext, R.anim.slide_out_right
+//    )
+//    viewFlipper.inAnimation = slide_in
+//    viewFlipper.outAnimation = slide_out
   }
 
   fun loadStoreInfo(){
@@ -131,7 +155,6 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
         }
       }
       override fun onFailure(call: Call<StoreResponse>, t: Throwable) {
-        TODO("Not yet implemented")
       }
     })
   }
@@ -145,10 +168,7 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
     val user = gson.fromJson(userInfo, UserResponse::class.java)
     binding.imageArrowleft.setOnClickListener {
     }
-    binding.etDropdownUnsele.setOnClickListener {
-        val destIntent = ProductCardSelectSizeBottomsheet.getIntent(this, null)
-        startActivity(destIntent)
-    }
+
     binding.linearRowstar.setOnClickListener {
       val destIntent = RatingAndReviewsActivity.getIntent(this, null)
       startActivity(destIntent)
@@ -166,9 +186,12 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
       )
       productApi.addToCart(body).enqueue(object : Callback<Unit>{
         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+          it.isActivated =  ! it.isActivated
+          Toast.makeText(this@ProductCardActivity, "Add to cart successfully", Toast.LENGTH_LONG).show()
         }
 
         override fun onFailure(call: Call<Unit>, t: Throwable) {
+          Toast.makeText(this@ProductCardActivity, "ERROR!, contact to support team for help", Toast.LENGTH_LONG).show()
         }
       })
     }
@@ -180,9 +203,12 @@ class ProductCardActivity : BaseActivity<ActivityProductCardBinding>(R.layout.ac
       )
       productApi.followProduct(body).enqueue(object : Callback<Unit>{
         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+          it.isActivated = !it.isActivated
+          Toast.makeText(this@ProductCardActivity, "Follow product Successfully", Toast.LENGTH_LONG).show()
         }
 
         override fun onFailure(call: Call<Unit>, t: Throwable) {
+          Toast.makeText(this@ProductCardActivity, "ERROR!, contact to support team for help", Toast.LENGTH_LONG).show()
         }
       })
     }
